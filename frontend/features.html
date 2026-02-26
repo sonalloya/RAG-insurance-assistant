@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Features â€“ RAG Insurance Assistant</title>
+    <title>Features RAG Insurance Assistant</title>
     <meta name="description"
         content="Explore the four core features of the RAG Insurance Assistant: clause citation, claim eligibility checker, multi-policy comparison, and admin analytics." />
     <link rel="stylesheet" href="style.css" />
@@ -15,14 +15,14 @@
     <!-- NAVBAR -->
     <nav class="navbar" id="navbar">
         <div class="nav-logo">
-            <div class="logo-icon">ðŸ›¡ï¸</div>
+            <!-- <div class="logo-icon">ðŸ›¡ï¸</div> -->
             <span>RAG<span>Insurance</span></span>
         </div>
         <div class="nav-links">
             <a href="index.html">Home</a>
             <a href="features.html" class="active">Features</a>
             <a href="admin.html">Admin Dashboard</a>
-            <a href="admin.html" class="nav-cta">Try Dashboard â†’</a>
+            <a href="admin.html" class="nav-cta">Try Dashboard</a>
         </div>
         <button class="hamburger" id="hamburger" aria-label="Menu">
             <span></span><span></span><span></span>
@@ -30,9 +30,9 @@
     </nav>
 
     <div class="mobile-menu" id="mobile-menu">
-        <a href="index.html">ðŸ  Home</a>
-        <a href="features.html" class="active">âš¡ Features</a>
-        <a href="admin.html">ðŸ“Š Admin Dashboard</a>
+        <a href="index.html">Home</a>
+        <a href="features.html" class="active">Features</a>
+        <a href="admin.html">Admin Dashboard</a>
     </div>
 
     <!-- PAGE HEADER -->
@@ -51,7 +51,7 @@
                 <div class="feature-tag">Transparency Â· Explainable AI</div>
                 <h2>Policy Clause Citation</h2>
                 <p>Every AI-generated response includes exact references to the policy sections it draws from. Instead
-                    of vague answers, users get precise clause citations like <em>"Covered under Section 4.2 â€“
+                    of vague answers, users get precise clause citations like <em>"Covered under Section 4.2 
                         Hospitalization Coverage."</em></p>
                 <p>This is made possible by the RAG pipeline â€” retrieved document chunks are mapped back to their source
                     section before the LLM generates a response.</p>
@@ -69,7 +69,7 @@
                         <span class="dot dot-red"></span>
                         <span class="dot dot-yellow"></span>
                         <span class="dot dot-green"></span>
-                        <span class="mock-ui-title">Policy Chatbot â€” Live Demo</span>
+                        <span class="mock-ui-title">Policy Chatbot Live Demo</span>
                     </div>
                     <div class="mock-ui-body">
                         <div class="clause-chat">
@@ -79,15 +79,15 @@
                             <div class="chat-bubble chat-bot">
                                 Yes, knee replacement surgery is covered after a 90-day waiting period for surgical
                                 procedures.
-                                <br><span class="clause-ref">ðŸ“Œ Section 6.1 â€“ Surgical Procedures Coverage</span>
+                                <br><span class="clause-ref">Section 6.1 Surgical Procedures Coverage</span>
                             </div>
                             <div class="chat-bubble chat-user">
                                 What is the maximum claim limit for hospitalization?
                             </div>
                             <div class="chat-bubble chat-bot">
-                                The maximum annual hospitalization benefit is â‚¹5,00,000 per policy year, subject to
+                                The maximum annual hospitalization benefit is 5,00,000 per policy year, subject to
                                 sub-limits on room rent.
-                                <br><span class="clause-ref">ðŸ“Œ Section 4.2 â€“ Hospitalization Coverage</span>
+                                <br><span class="clause-ref">Section 4.2 Hospitalization Coverage</span>
                             </div>
                             <div class="chat-bubble chat-user">
                                 Does maternity have a waiting period?
@@ -95,7 +95,7 @@
                             <div class="chat-bubble chat-bot">
                                 Maternity benefits are available after a 24-month continuous coverage waiting period
                                 from policy inception.
-                                <br><span class="clause-ref">ðŸ“Œ Section 8.3 â€“ Maternity &amp; Newborn Coverage</span>
+                                <br><span class="clause-ref">Section 8.3 Maternity &amp; Newborn Coverage</span>
                             </div>
                         </div>
                     </div>
@@ -109,7 +109,7 @@
         <div class="feature-layout reverse">
             <div class="feature-info reveal">
                 <div class="feature-num">02</div>
-                <div class="feature-tag">Automation Â· Business Rules</div>
+                <div class="feature-tag">Automation Business Rules</div>
                 <h2>Claim Eligibility Checker</h2>
                 <p>Combines AI-retrieved policy conditions with hard business rules to instantly determine whether a
                     claim qualifies. Users enter basic details and receive a clear, explainable verdict.</p>
@@ -155,7 +155,7 @@
                                 <input type="date" id="hosp-date" />
                             </div>
                             <button class="btn btn-primary" id="check-eligibility-btn">
-                                ðŸ” Check Eligibility
+                                Check Eligibility
                             </button>
                             <div class="eligibility-result" id="eligibility-result"></div>
                         </div>
@@ -170,7 +170,7 @@
         <div class="feature-layout">
             <div class="feature-info reveal">
                 <div class="feature-num">03</div>
-                <div class="feature-tag">Marketplace Â· Decision Support</div>
+                <div class="feature-tag">Marketplace Decision Support</div>
                 <h2>Multi-Policy Comparison</h2>
                 <p>Users can compare multiple insurance policies side-by-side using an AI-indexed comparison table. The
                     RAG system retrieves and structures the relevant clauses from each policy for direct comparison.</p>
@@ -197,9 +197,9 @@
                             <thead>
                                 <tr>
                                     <th>Feature / Benefit</th>
-                                    <th>ðŸ…° Policy A<br><small style="color:var(--text-dim);font-weight:400">HealthShield
+                                    <th>Policy A<br><small style="color:var(--text-dim);font-weight:400">HealthShield
                                             Pro</small></th>
-                                    <th>ðŸ…± Policy B<br><small style="color:var(--text-dim);font-weight:400">MedGuard
+                                    <th>Policy B<br><small style="color:var(--text-dim);font-weight:400">MedGuard
                                             Plus</small></th>
                                 </tr>
                             </thead>
@@ -207,42 +207,42 @@
                                 <tr>
                                     <td>Maternity Waiting Period</td>
                                     <td>2 Years</td>
-                                    <td>1 Year âœ“</td>
+                                    <td>1 Year</td>
                                 </tr>
                                 <tr>
                                     <td>Surgery Coverage</td>
-                                    <td class="check-yes">âœ“ Covered</td>
-                                    <td class="check-yes">âœ“ Covered</td>
+                                    <td class="check-yes">Covered</td>
+                                    <td class="check-yes">Covered</td>
                                 </tr>
                                 <tr>
                                     <td>Pre-Existing Conditions</td>
                                     <td>3 Year Wait</td>
-                                    <td>2 Year Wait âœ“</td>
+                                    <td>2 Year Wait </td>
                                 </tr>
                                 <tr>
                                     <td>Room Rent Sub-Limit</td>
-                                    <td>â‚¹3,000/day</td>
-                                    <td>â‚¹5,000/day âœ“</td>
+                                    <td>3,000/day</td>
+                                    <td>5,000/day</td>
                                 </tr>
                                 <tr>
                                     <td>Dental Coverage</td>
-                                    <td class="check-no">âœ— Not Covered</td>
-                                    <td class="check-yes">âœ“ Covered</td>
+                                    <td class="check-no">Not Covered</td>
+                                    <td class="check-yes">Covered</td>
                                 </tr>
                                 <tr>
                                     <td>COVID-19 Coverage</td>
-                                    <td class="check-yes">âœ“ Included</td>
-                                    <td class="check-yes">âœ“ Included</td>
+                                    <td class="check-yes">Included</td>
+                                    <td class="check-yes">Included</td>
                                 </tr>
                                 <tr>
                                     <td>Annual Sum Insured</td>
-                                    <td>â‚¹3 Lakhs</td>
-                                    <td>â‚¹5 Lakhs âœ“</td>
+                                    <td>3 Lakhs</td>
+                                    <td>5 Lakhs</td>
                                 </tr>
                                 <tr>
                                     <td>No Claim Bonus</td>
                                     <td>10% per year</td>
-                                    <td>15% per year âœ“</td>
+                                    <td>15% per year</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -257,7 +257,7 @@
         <div class="feature-layout reverse">
             <div class="feature-info reveal">
                 <div class="feature-num">04</div>
-                <div class="feature-tag">Analytics Â· Business Insights</div>
+                <div class="feature-tag">Analytics Business Insights</div>
                 <h2>Admin Dashboard Analytics</h2>
                 <p>A comprehensive admin interface for policy managers and system administrators. Provides real-time
                     insights into system usage, top queries, active users, and uploaded policy documents.</p>
@@ -271,7 +271,7 @@
                     <li>Activity log for all system events and uploads</li>
                 </ul>
                 <div style="margin-top:24px">
-                    <a href="admin.html" class="btn btn-primary">ðŸ“Š Open Full Dashboard â†’</a>
+                    <a href="admin.html" class="btn btn-primary">Open Full Dashboard </a>
                 </div>
             </div>
             <div class="reveal reveal-delay-2">
@@ -286,19 +286,19 @@
                         <div class="admin-preview-grid">
                             <div class="admin-mini-card">
                                 <div class="amt">1,247</div>
-                                <div class="lbl">ðŸ“Š Total Queries</div>
+                                <div class="lbl">Total Queries</div>
                             </div>
                             <div class="admin-mini-card">
                                 <div class="amt">84</div>
-                                <div class="lbl">ðŸ‘¥ Active Users</div>
+                                <div class="lbl">Active Users</div>
                             </div>
                             <div class="admin-mini-card">
                                 <div class="amt">12</div>
-                                <div class="lbl">ðŸ“„ Policies Indexed</div>
+                                <div class="lbl">Policies Indexed</div>
                             </div>
                             <div class="admin-mini-card">
                                 <div class="amt">96%</div>
-                                <div class="lbl">âœ… Accuracy Rate</div>
+                                <div class="lbl">Accuracy Rate</div>
                             </div>
                         </div>
                         <div style="margin-top:14px">
@@ -349,7 +349,7 @@
         <div class="footer-grid">
             <div class="footer-brand">
                 <div class="nav-logo" style="position:static">
-                    <div class="logo-icon">ðŸ›¡ï¸</div>
+                    <!-- <div class="logo-icon">ðŸ›¡ï¸</div> -->
                     <span style="color:#fff;font-size:1.05rem;font-weight:700">RAG<span
                             style="color:var(--primary-light)">Insurance</span></span>
                 </div>
