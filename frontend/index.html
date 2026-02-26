@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RAG Insurance Assistant â€“ Home</title>
+  <meta name="description"
+    content="AI-powered insurance policy assistant using Retrieval-Augmented Generation (RAG). Get instant, clause-backed answers to your insurance queries." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">
+      <div class="logo-icon">ðŸ›¡ï¸</div>
+      <span>RAG<span>Insurance</span></span>
+    </div>
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="features.html">Features</a>
+      <a href="admin.html">Admin Dashboard</a>
+      <a href="admin.html" class="nav-cta">Try Dashboard â†’</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html" class="active">ðŸ  Home</a>
+    <a href="features.html">âš¡ Features</a>
+    <a href="admin.html">ðŸ“Š Admin Dashboard</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <canvas id="hero-particles" style="position:absolute;inset:0;z-index:0;pointer-events:none"></canvas>
+    <div class="hero-bg-grid"></div>
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-content">
+      <h1>
+        <span class="gradient-text">RAG-Based</span><br>Insurance Chatbot<br>Assistant
+      </h1>
+      <p class="hero-sub">
+        An AI-powered insurance policy assistant using Retrieval-Augmented Generation. Get instant, clause-backed
+        answers to complex insurance queries with explainable, grounded responses.
+      </p>
+      <div class="hero-buttons">
+        <a href="features.html" class="btn btn-primary">âš¡ View Features</a>
+        <a href="admin.html" class="btn btn-outline">ðŸ“Š Go to Dashboard</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="stat-num" data-target="95" data-suffix="%">0%</span>
+          <span class="stat-label">Answer Accuracy</span>
+        </div>
+        <div class="hero-stat">
+          <span class="stat-num" data-target="10000" data-suffix="+">0+</span>
+          <span class="stat-label">Policy Clauses Indexed</span>
+        </div>
+        <div class="hero-stat">
+          <span class="stat-num" data-target="2" data-suffix="s">0s</span>
+          <span class="stat-label">Avg Response Time</span>
+        </div>
+        <div class="hero-stat">
+          <span class="stat-num" data-target="40" data-suffix="%">0%</span>
+          <span class="stat-label">Reduced Hallucination</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- QUICK FEATURE PREVIEW -->
+  <section class="feature-cards-section">
+    <div class="section-header reveal">
+      <div class="section-tag">Core Features</div>
+      <h2>What You Can Do</h2>
+      <p>Four powerful AI-driven capabilities designed for real-world insurance workflows.</p>
+    </div>
+    <div class="grid-4">
+      <div class="card feature-preview-card reveal reveal-delay-1" data-href="features.html#clause">
+        <span class="badge">Feature 01</span>
+        <div class="card-icon">ðŸ”</div>
+        <h3>Policy Clause Citation</h3>
+        <p>AI responses include exact section references from policy documents. Full transparency with every answer.</p>
+      </div>
+      <div class="card feature-preview-card reveal reveal-delay-2" data-href="features.html#eligibility">
+        <span class="badge">Feature 02</span>
+        <div class="card-icon">âœ…</div>
+        <h3>Claim Eligibility Checker</h3>
+        <p>Instantly verify if a claim is eligible based on policy dates, treatment types, and waiting periods.</p>
+      </div>
+      <div class="card feature-preview-card reveal reveal-delay-3" data-href="features.html#comparison">
+        <span class="badge">Feature 03</span>
+        <div class="card-icon">âš–ï¸</div>
+        <h3>Multi-Policy Comparison</h3>
+        <p>Side-by-side comparison of multiple insurance policies. Marketplace-style experience for users.</p>
+      </div>
+      <div class="card feature-preview-card reveal reveal-delay-4" data-href="admin.html">
+        <span class="badge">Feature 04</span>
+        <div class="card-icon">ðŸ“Š</div>
+        <h3>Admin Analytics Dashboard</h3>
+        <p>Upload policies, monitor queries, track top questions, and view usage analytics in real time.</p>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="reveal">
+      <div class="section-tag" style="margin-bottom:16px">Get Started</div>
+      <h2>Ready to Explore the System?</h2>
+      <p>Dive into the features or launch the admin dashboard to see RAG in action.</p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:36px">
+        <a href="features.html" class="btn btn-primary">âš¡ Explore Features</a>
+        <a href="admin.html" class="btn btn-outline">ï¿½ Open Dashboard</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo" style="position:static">
+          <div class="logo-icon">ðŸ›¡ï¸</div>
+          <span style="color:#fff;font-size:1.05rem;font-weight:700">RAG<span
+              style="color:var(--primary-light)">Insurance</span></span>
+        </div>
+        <p>AI-powered insurance policy assistant using Retrieval-Augmented Generation for explainable, grounded
+          responses.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Navigation</h5>
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="admin.html">Admin Dashboard</a>
+      </div>
+      <div class="footer-col">
+        <h5>Features</h5>
+        <a href="features.html#clause">Clause Citation</a>
+        <a href="features.html#eligibility">Eligibility Checker</a>
+        <a href="features.html#comparison">Policy Comparison</a>
+        <a href="features.html#analytics">Analytics</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <!-- 
+    🔧 API CONFIG — Update this URL after deploying your backend to Render
+    Local dev:   http://localhost:5000
+    Production:  https://your-app-name.onrender.com
+  -->
+  <script>
+    window.ENV_API_URL = "http://localhost:5000";
+  </script>
+</body>
+
+</html>

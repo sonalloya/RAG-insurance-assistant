@@ -1,0 +1,368 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard â€“ RAG Insurance Assistant</title>
+    <meta name="description"
+        content="Admin dashboard for the RAG Insurance Assistant â€” upload policies, monitor queries, view top questions, and track usage analytics." />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-logo">
+            <div class="logo-icon">ðŸ›¡ï¸</div>
+            <span>RAG<span>Insurance</span></span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="features.html">Features</a>
+            <a href="admin.html" class="active">Admin Dashboard</a>
+            <a href="admin.html" class="nav-cta">Try Dashboard â†’</a>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="index.html">ðŸ  Home</a>
+        <a href="features.html">âš¡ Features</a>
+        <a href="admin.html" class="active">ðŸ“Š Admin Dashboard</a>
+    </div>
+
+    <!-- ADMIN LAYOUT -->
+    <div class="admin-page">
+        <div class="admin-container">
+
+            <!-- SIDEBAR -->
+            <aside class="admin-sidebar">
+                <div class="sidebar-section-title">Main</div>
+                <button class="sidebar-item active">
+                    <span class="item-icon">ðŸ“Š</span> Overview
+                </button>
+                <button class="sidebar-item">
+                    <span class="item-icon">ðŸ“„</span> Policy Manager
+                </button>
+                <button class="sidebar-item">
+                    <span class="item-icon">ðŸ’¬</span> Query Log
+                </button>
+                <button class="sidebar-item">
+                    <span class="item-icon">ðŸ“ˆ</span> Analytics
+                </button>
+
+                <div class="sidebar-section-title">Management</div>
+                <button class="sidebar-item">
+                    <span class="item-icon">ðŸ‘¥</span> Users
+                </button>
+                <button class="sidebar-item">
+                    <span class="item-icon">ðŸ””</span> Alerts
+                </button>
+                <button class="sidebar-item">
+                    <span class="item-icon">âš™ï¸</span> Settings
+                </button>
+
+                <div class="sidebar-section-title">System</div>
+                <button class="sidebar-item">
+                    <span class="item-icon">ðŸ”Œ</span> Integrations
+                </button>
+                <button class="sidebar-item">
+                    <span class="item-icon">ðŸ“¥</span> Exports
+                </button>
+                <button class="sidebar-item">
+                    <span class="item-icon">ðŸšª</span> Logout
+                </button>
+            </aside>
+
+            <!-- MAIN CONTENT -->
+            <main class="admin-main">
+
+                <!-- TOP BAR -->
+                <div class="admin-topbar">
+                    <div>
+                        <h1>Admin Dashboard</h1>
+                        <p>RAG Insurance Assistant Â· System Overview Â· Last updated: just now</p>
+                    </div>
+                    <div class="admin-actions">
+                        <label for="file-input" class="btn btn-primary btn-sm" style="cursor:pointer">
+                            ðŸ“¤ Upload Policy
+                        </label>
+                        <input type="file" id="file-input" accept=".pdf,.docx,.txt" multiple />
+                    </div>
+                </div>
+
+                <!-- STATS CARDS -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">ðŸ“Š</div>
+                        <div class="stat-value" id="total-queries">1,247</div>
+                        <div class="stat-label">Total Queries</div>
+                        <div class="stat-change up">â†‘ +18.3% this week</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">ðŸ‘¥</div>
+                        <div class="stat-value">84</div>
+                        <div class="stat-label">Active Users</div>
+                        <div class="stat-change up">â†‘ +7 today</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">ðŸ“„</div>
+                        <div class="stat-value">12</div>
+                        <div class="stat-label">Policies Indexed</div>
+                        <div class="stat-change up">â†‘ +2 this month</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">âœ…</div>
+                        <div class="stat-value">96%</div>
+                        <div class="stat-label">Retrieval Accuracy</div>
+                        <div class="stat-change up">â†‘ +1.2%</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">âš¡</div>
+                        <div class="stat-value">1.8s</div>
+                        <div class="stat-label">Avg Resp. Time</div>
+                        <div class="stat-change down">â†“ âˆ’0.3s improved</div>
+                    </div>
+                </div>
+
+                <!-- UPLOAD AREA -->
+                <div style="margin-bottom:20px">
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h3>ðŸ“ Policy Document Upload</h3>
+                            <span style="font-size:0.8rem;color:var(--text-muted)">PDF, DOCX, TXT supported</span>
+                        </div>
+                        <div class="panel-body">
+                            <div class="upload-area" id="upload-area">
+                                <div class="upload-icon">ðŸ“‚</div>
+                                <p>Drag &amp; drop policy documents here, or click to browse</p>
+                                <span class="btn btn-outline btn-sm">Browse Files</span>
+                            </div>
+                            <div class="upload-list" id="upload-list"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ANALYTICS + TOP QUESTIONS -->
+                <div class="dashboard-grid">
+                    <!-- Analytics Chart -->
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h3>ðŸ“ˆ Query Volume â€” Last 7 Days</h3>
+                            <span style="font-size:0.78rem;color:var(--text-muted)">Daily active queries</span>
+                        </div>
+                        <div class="panel-body">
+                            <div class="chart-bars">
+                                <div class="chart-bar" style="height:60%" data-value="142"></div>
+                                <div class="chart-bar" style="height:75%" data-value="178"></div>
+                                <div class="chart-bar" style="height:50%" data-value="120"></div>
+                                <div class="chart-bar" style="height:90%" data-value="214"></div>
+                                <div class="chart-bar" style="height:65%" data-value="154"></div>
+                                <div class="chart-bar" style="height:80%" data-value="190"></div>
+                                <div class="chart-bar" style="height:100%" data-value="249"></div>
+                            </div>
+                            <div class="chart-labels">
+                                <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+                            </div>
+                            <div
+                                style="margin-top:20px;padding-top:16px;border-top:1px solid var(--glass-border);display:flex;gap:24px;flex-wrap:wrap">
+                                <div>
+                                    <div style="font-size:1.4rem;font-weight:800;color:#fff">1,247</div>
+                                    <div style="font-size:0.75rem;color:var(--text-dim)">Total this week</div>
+                                </div>
+                                <div>
+                                    <div style="font-size:1.4rem;font-weight:800;color:var(--success)">+18.3%</div>
+                                    <div style="font-size:0.75rem;color:var(--text-dim)">vs last week</div>
+                                </div>
+                                <div>
+                                    <div style="font-size:1.4rem;font-weight:800;color:var(--primary-light)">178</div>
+                                    <div style="font-size:0.75rem;color:var(--text-dim)">Daily average</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Top Questions -->
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h3>ðŸ”¥ Top Asked Questions</h3>
+                            <span style="font-size:0.78rem;color:var(--text-muted)">This week</span>
+                        </div>
+                        <div class="panel-body">
+                            <div class="question-item">
+                                <div class="q-rank">1</div>
+                                <div style="flex:1">
+                                    <div class="q-text">What is covered under hospitalization?</div>
+                                    <div class="q-bar">
+                                        <div class="q-bar-fill" style="width:85%"></div>
+                                    </div>
+                                </div>
+                                <div class="q-count">312</div>
+                            </div>
+                            <div class="question-item">
+                                <div class="q-rank">2</div>
+                                <div style="flex:1">
+                                    <div class="q-text">Maternity benefit waiting period?</div>
+                                    <div class="q-bar">
+                                        <div class="q-bar-fill" style="width:60%"></div>
+                                    </div>
+                                </div>
+                                <div class="q-count">198</div>
+                            </div>
+                            <div class="question-item">
+                                <div class="q-rank">3</div>
+                                <div style="flex:1">
+                                    <div class="q-text">Pre-existing disease coverage rules?</div>
+                                    <div class="q-bar">
+                                        <div class="q-bar-fill" style="width:45%"></div>
+                                    </div>
+                                </div>
+                                <div class="q-count">143</div>
+                            </div>
+                            <div class="question-item">
+                                <div class="q-rank">4</div>
+                                <div style="flex:1">
+                                    <div class="q-text">How to file a cashless claim?</div>
+                                    <div class="q-bar">
+                                        <div class="q-bar-fill" style="width:38%"></div>
+                                    </div>
+                                </div>
+                                <div class="q-count">121</div>
+                            </div>
+                            <div class="question-item">
+                                <div class="q-rank">5</div>
+                                <div style="flex:1">
+                                    <div class="q-text">What is the room rent sub-limit?</div>
+                                    <div class="q-bar">
+                                        <div class="q-bar-fill" style="width:30%"></div>
+                                    </div>
+                                </div>
+                                <div class="q-count">98</div>
+                            </div>
+                            <div class="question-item">
+                                <div class="q-rank">6</div>
+                                <div style="flex:1">
+                                    <div class="q-text">Does the policy cover dental treatment?</div>
+                                    <div class="q-bar">
+                                        <div class="q-bar-fill" style="width:22%"></div>
+                                    </div>
+                                </div>
+                                <div class="q-count">71</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RECENT ACTIVITY TABLE -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <h3>ðŸ• Recent Activity Log</h3>
+                        <span style="font-size:0.78rem;color:var(--text-muted)">Last 10 events</span>
+                    </div>
+                    <div style="overflow-x:auto">
+                        <table class="activity-table">
+                            <thead>
+                                <tr>
+                                    <th>Timestamp</th>
+                                    <th>Event Type</th>
+                                    <th>User / Source</th>
+                                    <th>Details</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Today, 10:14 AM</td>
+                                    <td>Query</td>
+                                    <td>User #0842</td>
+                                    <td>What is covered under hospitalization?</td>
+                                    <td><span class="status-badge status-success">Success</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Today, 10:08 AM</td>
+                                    <td>Policy Upload</td>
+                                    <td>Admin</td>
+                                    <td>HealthShield_Pro_v2.pdf (2.4 MB)</td>
+                                    <td><span class="status-badge status-success">Indexed</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Today, 09:55 AM</td>
+                                    <td>Query</td>
+                                    <td>User #0791</td>
+                                    <td>Maternity waiting period and coverage</td>
+                                    <td><span class="status-badge status-success">Success</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Today, 09:41 AM</td>
+                                    <td>Eligibility Check</td>
+                                    <td>User #0834</td>
+                                    <td>Surgery eligibility â€” 45 days since start</td>
+                                    <td><span class="status-badge status-pending">Processing</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Today, 09:20 AM</td>
+                                    <td>Query</td>
+                                    <td>User #0712</td>
+                                    <td>Pre-existing condition coverage rules</td>
+                                    <td><span class="status-badge status-success">Success</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Today, 09:02 AM</td>
+                                    <td>Policy Upload</td>
+                                    <td>Admin</td>
+                                    <td>MedGuard_Plus_2024.pdf (3.1 MB)</td>
+                                    <td><span class="status-badge status-success">Indexed</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Yesterday, 11:47 PM</td>
+                                    <td>Query</td>
+                                    <td>User #0680</td>
+                                    <td>Dental and vision care coverage</td>
+                                    <td><span class="status-badge status-error">Timeout</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Yesterday, 06:30 PM</td>
+                                    <td>Comparison</td>
+                                    <td>User #0751</td>
+                                    <td>Policy A vs Policy B â€” 8 criteria</td>
+                                    <td><span class="status-badge status-success">Success</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Yesterday, 03:15 PM</td>
+                                    <td>Query</td>
+                                    <td>User #0620</td>
+                                    <td>Cashless claim process step by step</td>
+                                    <td><span class="status-badge status-success">Success</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Yesterday, 01:00 PM</td>
+                                    <td>System</td>
+                                    <td>Scheduler</td>
+                                    <td>Daily analytics report generated</td>
+                                    <td><span class="status-badge status-success">Done</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+  <!-- 
+    🔧 API CONFIG — Update this URL after deploying your backend to Render
+    Local dev:   http://localhost:5000
+    Production:  https://your-app-name.onrender.com
+  -->
+  <script>
+    window.ENV_API_URL = "http://localhost:5000";
+  </script>
+</body>
+
+</html>

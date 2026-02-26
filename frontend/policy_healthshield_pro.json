@@ -1,0 +1,210 @@
+{
+  "policy": {
+    "policy_id": "HS-PRO-2024-001",
+    "policy_name": "HealthShield Pro",
+    "insurer": "ShieldLife Insurance Co.",
+    "policy_type": "Individual Health Insurance",
+    "version": "2.1",
+    "effective_date": "2024-01-01",
+    "expiry_date": "2024-12-31",
+    "premium_amount": 18500,
+    "currency": "INR",
+    "sum_insured": 500000,
+    "policyholder": {
+      "name": "Rahul Sharma",
+      "dob": "1990-05-14",
+      "age": 34,
+      "gender": "Male",
+      "email": "rahul.sharma@email.com",
+      "phone": "+91-9876543210",
+      "address": "42, Green Park, New Delhi - 110016"
+    },
+    "sections": [
+      {
+        "section_id": "S1",
+        "title": "Definitions",
+        "content": "In this policy, the following terms shall have the meanings assigned to them unless the context otherwise requires. 'Insured' means the person named in the Schedule. 'Hospital' means any institution established for in-patient care and day care treatment and registered with the local authorities. 'Pre-Existing Disease' means any condition, ailment, injury or disease that was diagnosed or treated within 48 months prior to the first policy year. 'Network Provider' means hospitals, diagnostic centres and other medical facilities empanelled with the insurer."
+      },
+      {
+        "section_id": "S2",
+        "title": "Scope of Cover",
+        "content": "The policy provides coverage for hospitalization expenses incurred due to illness or accidental bodily injury. Coverage is subject to the terms, conditions and exclusions mentioned in this policy document. The insurer will indemnify the insured for reasonable and customary medical expenses necessarily incurred on the advice of a medical practitioner."
+      },
+      {
+        "section_id": "S3",
+        "title": "In-Patient Hospitalization",
+        "sub_sections": [
+          {
+            "sub_id": "S3.1",
+            "title": "Room Rent",
+            "content": "Room rent is covered up to ₹5,000 per day for a single private AC room. ICU charges are covered up to ₹10,000 per day. If the insured opts for a room with a higher rent, all associated medical expenses will be proportionately reduced."
+          },
+          {
+            "sub_id": "S3.2",
+            "title": "Minimum Hospitalization Duration",
+            "content": "Hospitalization benefits are payable only if the insured is admitted for a continuous period of at least 24 hours, except for specified day-care procedures which are covered irrespective of duration."
+          },
+          {
+            "sub_id": "S3.3",
+            "title": "Day Care Procedures",
+            "content": "The following day-care procedures are covered regardless of hospitalization duration: Cataract surgery, Chemotherapy, Radiotherapy, Dialysis, Lithotripsy (kidney stone removal), Tonsillectomy, Angiography, Bone marrow transplant, and any other procedure approved by the insurer."
+          }
+        ]
+      },
+      {
+        "section_id": "S4",
+        "title": "Hospitalization Coverage",
+        "sub_sections": [
+          {
+            "sub_id": "S4.1",
+            "title": "Pre-Hospitalization Expenses",
+            "content": "Medical expenses incurred up to 30 days prior to the date of hospitalization are covered, provided they are in respect of the same illness or injury for which hospitalization was required."
+          },
+          {
+            "sub_id": "S4.2",
+            "title": "Hospitalization Coverage Limits",
+            "content": "The maximum annual hospitalization benefit is ₹5,00,000 per policy year. This includes room rent, nursing charges, surgeon fees, anaesthetist fees, blood, oxygen, operation theatre charges, medicines, and diagnostic tests. Sub-limits apply: room rent ₹5,000/day, ICU ₹10,000/day."
+          },
+          {
+            "sub_id": "S4.3",
+            "title": "Post-Hospitalization Expenses",
+            "content": "Medical expenses incurred up to 60 days after discharge from hospital are covered, provided they are related to the illness or injury for which hospitalization was required and supported by valid medical documents."
+          }
+        ]
+      },
+      {
+        "section_id": "S5",
+        "title": "Waiting Periods",
+        "sub_sections": [
+          {
+            "sub_id": "S5.1",
+            "title": "Initial Waiting Period",
+            "content": "A general waiting period of 30 days applies from the policy inception date. No claim shall be admissible during this period except for accidental hospitalization, which is covered from day one."
+          },
+          {
+            "sub_id": "S5.2",
+            "title": "Specific Disease Waiting Period",
+            "content": "A waiting period of 2 years applies for specific diseases including: Hernia, Cataract, Benign Prostatic Hypertrophy, Hysterectomy, Joint replacement surgery, and Sinusitis-related treatments."
+          },
+          {
+            "sub_id": "S5.3",
+            "title": "Pre-Existing Disease Waiting Period",
+            "content": "Pre-existing diseases are covered after a waiting period of 3 years (1095 days) of continuous coverage under this policy. After completion of 3 policy years without break, pre-existing conditions shall be covered from the 4th year onwards."
+          }
+        ]
+      },
+      {
+        "section_id": "S6",
+        "title": "Surgical Procedures",
+        "sub_sections": [
+          {
+            "sub_id": "S6.1",
+            "title": "Surgical Procedures Coverage",
+            "content": "Surgical procedures are covered after a waiting period of 90 days from policy inception, except for accidental surgeries which are covered from day one. Covered surgical procedures include: Appendectomy, Cholecystectomy, Hernia repair, Knee and hip replacement, Cardiac bypass surgery, Laparoscopic procedures, Spinal surgeries, and Organ transplants. Surgeon and anaesthetist fees are payable as per the insurer's standard schedule."
+          },
+          {
+            "sub_id": "S6.2",
+            "title": "Robotic Surgery",
+            "content": "Robotic-assisted surgeries are covered up to the extent of equivalent conventional surgical costs. Any additional cost specifically attributable to the use of robotic technology is not covered."
+          }
+        ]
+      },
+      {
+        "section_id": "S7",
+        "title": "No Claim Bonus",
+        "content": "For every claim-free policy year, the Sum Insured shall be increased by 10% of the base Sum Insured, subject to a maximum of 50% of the base Sum Insured. The accumulated No Claim Bonus (NCB) will be reduced by 10% for every year a claim is made."
+      },
+      {
+        "section_id": "S8",
+        "title": "Maternity and Newborn Coverage",
+        "sub_sections": [
+          {
+            "sub_id": "S8.1",
+            "title": "Maternity Benefit",
+            "content": "Maternity expenses are covered after a waiting period of 24 months of continuous coverage. Coverage includes normal delivery (up to ₹40,000) and caesarean delivery (up to ₹60,000). Pre- and post-natal expenses up to ₹10,000 are included."
+          },
+          {
+            "sub_id": "S8.2",
+            "title": "Newborn Cover",
+            "content": "The newborn baby is automatically covered from birth for the first 90 days under the mother's policy. To continue coverage beyond 90 days, the newborn must be enrolled as a separate insured under the policy or a new policy."
+          },
+          {
+            "sub_id": "S8.3",
+            "title": "Maternity & Newborn Coverage Details",
+            "content": "Maternity benefits are available after a 24-month continuous coverage waiting period from the policy inception date. The waiting period applies freshly if there is any break in coverage. Complications of pregnancy including ectopic pregnancy, miscarriage requiring hospitalization, and related conditions are covered under standard hospitalization benefits without the maternity waiting period."
+          }
+        ]
+      },
+      {
+        "section_id": "S9",
+        "title": "Dental and Vision Coverage",
+        "sub_sections": [
+          {
+            "sub_id": "S9.1",
+            "title": "Dental Coverage",
+            "content": "Dental treatments necessitated by accidental injury are covered under hospitalization benefits from day one. Routine dental treatments, dental surgery not arising from an accident, dental implants, and orthodontic treatments are covered after a waiting period of 180 days, up to ₹15,000 per policy year."
+          },
+          {
+            "sub_id": "S9.2",
+            "title": "Vision Care",
+            "content": "Expenses for spectacles, contact lenses, and refractive error correction are covered after 90 days of policy inception, up to ₹5,000 per policy year. Cataract surgery is covered under day-care procedures from the date of policy inception after the 30-day initial waiting period."
+          }
+        ]
+      },
+      {
+        "section_id": "S10",
+        "title": "Exclusions",
+        "content": "The following are not covered under this policy: (a) Any pre-existing condition during the waiting period. (b) Treatment for alcoholism, drug abuse, or substance abuse. (c) Cosmetic or aesthetic surgery, except for reconstructive surgery following an accident. (d) Treatment for infertility, sub-fertility, or assisted reproduction techniques (IVF, IUI, ICSI, etc.). (e) Experimental treatments and unproven medical procedures. (f) Injuries arising from war, invasion, act of foreign enemy, or participation in criminal activities. (g) Sexually transmitted diseases (STDs) including HIV/AIDS. (h) Treatment outside India unless approved pre-authorization is obtained. (i) Vitamins and supplements unless prescribed during hospitalization for specific illness. (j) Non-medical and administrative expenses."
+      },
+      {
+        "section_id": "S11",
+        "title": "Cashless and Reimbursement Claims",
+        "sub_sections": [
+          {
+            "sub_id": "S11.1",
+            "title": "Cashless Facility",
+            "content": "Cashless facility is available at all Network Provider hospitals. To avail cashless treatment, the insured must: (1) Contact the insurer's 24x7 helpline at least 48 hours prior to planned admission, or within 24 hours of emergency admission. (2) Present the health card and valid photo ID at the hospital's insurance desk. (3) Obtain pre-authorization approval from the insurer. Non-medical expenses must be settled directly by the insured."
+          },
+          {
+            "sub_id": "S11.2",
+            "title": "Reimbursement Claims",
+            "content": "For treatment at non-network hospitals, the insured must pay the hospital bills and claim reimbursement. Claim documents must be submitted within 15 days of discharge. Required documents include: Original discharge summary, All original bills and receipts, Prescription from treating doctor, Investigation reports, and Policy documents. Reimbursement will be processed within 30 working days of receiving complete documentation."
+          }
+        ]
+      },
+      {
+        "section_id": "S12",
+        "title": "Renewal Conditions",
+        "content": "This policy is renewable annually. The premium for renewal shall be based on the age of the insured at the time of renewal and the applicable premium rates. The policy shall be renewed before the expiry date to maintain continuity of coverage and accumulated benefits. A grace period of 30 days is allowed for renewal, during which coverage remains inactive. If the policy lapses, the pre-existing disease waiting period shall be applied afresh."
+      }
+    ],
+    "network_hospitals": [
+      "Apollo Hospitals",
+      "Fortis Healthcare",
+      "Max Super Speciality Hospital",
+      "Manipal Hospitals",
+      "Narayana Health",
+      "Medanta - The Medicity",
+      "Kokilaben Dhirubhai Ambani Hospital",
+      "AIIMS (All India Institute of Medical Sciences)"
+    ],
+    "contact": {
+      "helpline": "1800-XXX-XXXX",
+      "email": "claims@shieldlifeinsurance.com",
+      "website": "www.shieldlifeinsurance.com",
+      "grievance_officer": "grievance@shieldlifeinsurance.com"
+    },
+    "metadata": {
+      "created_at": "2024-01-01T00:00:00Z",
+      "last_updated": "2024-01-01T00:00:00Z",
+      "document_type": "Insurance Policy",
+      "language": "English",
+      "total_sections": 12,
+      "total_clauses": 28,
+      "rag_indexable": true,
+      "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+      "chunk_size": 500,
+      "chunk_overlap": 50
+    }
+  }
+}
