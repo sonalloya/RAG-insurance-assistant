@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Claim Eligibility Checker – RAG Insurance Assistant</title>
+    <meta name="description"
+        content="Instantly check if a claim is eligible based on policy dates, treatment type, and waiting periods. RAG-powered business rule engine." />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-logo"><span>RAG<span>Insurance</span></span></div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="features.html" class="active">Features</a>
+            <a href="policy-tracker.html">Policy Tracker</a>
+            <a href="admin.html">Admin Dashboard</a>
+            <a href="admin.html" class="nav-cta">Try Dashboard</a>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </nav>
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="index.html">🏠 Home</a>
+        <a href="features.html" class="active">⚡ Features</a>
+        <a href="policy-tracker.html">📋 Policy Tracker</a>
+        <a href="admin.html">📊 Admin Dashboard</a>
+    </div>
+
+    <!-- HERO -->
+    <div class="page-header feature-hero"
+        style="background:radial-gradient(ellipse 80% 50% at 50% -10%,rgba(16,185,129,0.25) 0%,transparent 70%),var(--bg)">
+        <a href="features.html" class="feature-back-link">← Back to All Features</a>
+        <div class="feature-num" style="font-size:3rem;margin-bottom:12px">02</div>
+        <div class="section-tag">Automation · Business Rules</div>
+        <h1>Claim Eligibility Checker</h1>
+        <p>Enter your policy start date, treatment type, and treatment date — get an instant eligibility verdict with
+            the reason, backed by policy clauses.</p>
+        <div class="feature-hero-pills">
+            <span>⚡ Instant Verdict</span>
+            <span>📋 Rule-Backed</span>
+            <span>🎯 7 Treatment Types</span>
+        </div>
+    </div>
+
+    <main style="max-width:1100px;margin:0 auto;padding:60px 5% 100px">
+
+        <div class="feature-layout reverse reveal" style="margin-bottom:60px">
+            <div class="feature-info">
+                <h2>How It Works</h2>
+                <p>The system combines AI-retrieved policy conditions with deterministic business rules to instantly
+                    determine whether a claim qualifies. Enter basic details and receive a clear, explainable verdict —
+                    no ambiguity.</p>
+                <p>The rule engine checks waiting periods, treatment categories, and policy inception dates against
+                    retrieved policy clauses to produce a reliable decision.</p>
+                <ul class="feature-points">
+                    <li>Validates waiting periods for 7 treatment types</li>
+                    <li>Combines RAG retrieval with deterministic rules</li>
+                    <li>Handles general, surgical, maternity, dental, vision & pre-existing</li>
+                    <li>Provides exact reasons for eligibility or rejection</li>
+                    <li>Shows remaining days if waiting period not complete</li>
+                    <li>Day-1 accident coverage applies automatically</li>
+                </ul>
+
+                <!-- Waiting period reference table -->
+                <div
+                    style="margin-top:24px;background:var(--bg-card2);border:1px solid var(--glass-border);border-radius:var(--radius-sm);overflow:hidden">
+                    <div
+                        style="padding:12px 16px;background:rgba(99,102,241,0.08);border-bottom:1px solid var(--glass-border);font-size:0.78rem;font-weight:700;color:var(--primary-light);text-transform:uppercase;letter-spacing:0.5px">
+                        Waiting Period Reference</div>
+                    <table style="width:100%;border-collapse:collapse">
+                        <tbody>
+                            <tr style="border-bottom:1px solid var(--glass-border)">
+                                <td style="padding:9px 16px;font-size:0.82rem;color:var(--text)">General Treatment</td>
+                                <td
+                                    style="padding:9px 16px;font-size:0.82rem;color:var(--success);font-weight:700;text-align:right">
+                                    30 days</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--glass-border)">
+                                <td style="padding:9px 16px;font-size:0.82rem;color:var(--text)">Surgical Procedure</td>
+                                <td
+                                    style="padding:9px 16px;font-size:0.82rem;color:var(--accent);font-weight:700;text-align:right">
+                                    90 days</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--glass-border)">
+                                <td style="padding:9px 16px;font-size:0.82rem;color:var(--text)">Dental Treatment</td>
+                                <td
+                                    style="padding:9px 16px;font-size:0.82rem;color:var(--accent);font-weight:700;text-align:right">
+                                    180 days</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--glass-border)">
+                                <td style="padding:9px 16px;font-size:0.82rem;color:var(--text)">Maternity Coverage</td>
+                                <td
+                                    style="padding:9px 16px;font-size:0.82rem;color:var(--danger);font-weight:700;text-align:right">
+                                    730 days (2 yrs)</td>
+                            </tr>
+                            <tr>
+                                <td style="padding:9px 16px;font-size:0.82rem;color:var(--text)">Pre-Existing Condition
+                                </td>
+                                <td
+                                    style="padding:9px 16px;font-size:0.82rem;color:var(--danger);font-weight:700;text-align:right">
+                                    1095 days (3 yrs)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- LIVE FORM -->
+            <div class="reveal reveal-delay-2">
+                <div class="mock-ui">
+                    <div class="mock-ui-header">
+                        <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span
+                            class="dot dot-green"></span>
+                        <span class="mock-ui-title">Claim Eligibility Checker — Live</span>
+                    </div>
+                    <div class="mock-ui-body">
+                        <div class="eligibility-form" id="eligibility-form">
+                            <div class="form-group">
+                                <label for="policy-start">Policy Start Date</label>
+                                <input type="date" id="policy-start" />
+                            </div>
+                            <div class="form-group">
+                                <label for="treatment-type">Treatment Type</label>
+                                <select id="treatment-type">
+                                    <option value="" disabled selected>Select treatment type</option>
+                                    <option value="general">General Treatment (30 days wait)</option>
+                                    <option value="hospitalization">Hospitalization (30 days wait)</option>
+                                    <option value="surgery">Surgical Procedure (90 days wait)</option>
+                                    <option value="maternity">Maternity Coverage (730 days wait)</option>
+                                    <option value="pre-existing">Pre-Existing Condition (1095 days wait)</option>
+                                    <option value="dental">Dental Treatment (180 days wait)</option>
+                                    <option value="vision">Vision Care (90 days wait)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="hosp-date">Hospitalization / Treatment Date</label>
+                                <input type="date" id="hosp-date" />
+                            </div>
+                            <button class="btn btn-primary" id="check-eligibility-btn"
+                                style="width:100%;justify-content:center">
+                                ✅ Check Eligibility
+                            </button>
+                            <div class="eligibility-result" id="eligibility-result"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BENEFIT CARDS -->
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px" class="reveal">
+            <div class="highlight-card">
+                <div style="font-size:1.6rem;margin-bottom:10px">⚡</div>
+                <h4>Instant Decision</h4>
+                <p>What takes a claims adjuster hours is done in milliseconds — with full reasoning.</p>
+            </div>
+            <div class="highlight-card">
+                <div style="font-size:1.6rem;margin-bottom:10px">📋</div>
+                <h4>Clause-Backed</h4>
+                <p>Every verdict references the specific clause and waiting period from the policy document.</p>
+            </div>
+            <div class="highlight-card">
+                <div style="font-size:1.6rem;margin-bottom:10px">🔄</div>
+                <h4>Reduces Re-work</h4>
+                <p>Customers self-check before filing — reducing invalid claim submissions by up to 60%.</p>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div style="text-align:center;padding:40px;background:var(--bg-card);border:1px solid var(--glass-border);border-radius:var(--radius)"
+            class="reveal">
+            <h3 style="font-size:1.3rem;font-weight:800;color:#fff;margin-bottom:10px">Compare Policies Too</h3>
+            <p style="color:var(--text-muted);margin-bottom:24px">See how different policies handle waiting periods —
+                side by side</p>
+            <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+                <a href="policy-comparison.html" class="btn btn-primary">⚖️ Compare Policies</a>
+                <a href="features.html" class="btn btn-outline">← All Features</a>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="nav-logo" style="position:static"><span
+                        style="color:#fff;font-size:1.05rem;font-weight:700">RAG<span
+                            style="color:var(--primary-light)">Insurance</span></span></div>
+                <p>AI-powered insurance policy assistant using Retrieval-Augmented Generation.</p>
+            </div>
+            <div class="footer-col">
+                <h5>Features</h5>
+                <a href="clause-citation.html">Clause Citation</a>
+                <a href="eligibility-checker.html">Eligibility Checker</a>
+                <a href="policy-comparison.html">Policy Comparison</a>
+                <a href="ai-chatbot.html">AI Chatbot</a>
+                <a href="policy-tracker.html">Policy Tracker</a>
+            </div>
+            <div class="footer-col">
+                <h5>Navigation</h5>
+                <a href="index.html">Home</a>
+                <a href="features.html">All Features</a>
+                <a href="admin.html">Admin Dashboard</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>window.ENV_API_URL = "https://rag-insurance-assistant.onrender.com";</script>
+</body>
+
+</html>

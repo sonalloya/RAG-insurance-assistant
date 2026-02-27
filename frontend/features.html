@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Features RAG Insurance Assistant</title>
+    <title>Features – RAG Insurance Assistant</title>
     <meta name="description"
-        content="Explore the four core features of the RAG Insurance Assistant: clause citation, claim eligibility checker, multi-policy comparison, and admin analytics." />
+        content="Explore the five core features of the RAG Insurance Assistant: clause citation, claim eligibility, policy comparison, AI chatbot, and policy version tracker." />
     <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -14,9 +14,7 @@
 
     <!-- NAVBAR -->
     <nav class="navbar" id="navbar">
-        <div class="nav-logo">
-            <span>RAG<span>Insurance</span></span>
-        </div>
+        <div class="nav-logo"><span>RAG<span>Insurance</span></span></div>
         <div class="nav-links">
             <a href="index.html">Home</a>
             <a href="features.html" class="active">Features</a>
@@ -24,406 +22,182 @@
             <a href="admin.html">Admin Dashboard</a>
             <a href="admin.html" class="nav-cta">Try Dashboard</a>
         </div>
-        <button class="hamburger" id="hamburger" aria-label="Menu">
-            <span></span><span></span><span></span>
-        </button>
+        <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
     </nav>
-
     <div class="mobile-menu" id="mobile-menu">
-        <a href="index.html">Home</a>
-        <a href="features.html" class="active">Features</a>
-        <a href="admin.html">Admin Dashboard</a>
+        <a href="index.html">🏠 Home</a>
+        <a href="features.html" class="active">⚡ Features</a>
+        <a href="policy-tracker.html">📋 Policy Tracker</a>
+        <a href="admin.html">📊 Admin Dashboard</a>
     </div>
 
     <!-- PAGE HEADER -->
     <div class="page-header">
         <div class="section-tag">Product Features</div>
-        <h1>Four Powerful AI Capabilities</h1>
-        <p>Each feature is designed to solve a real insurance workflow problem using RAG-powered AI and intelligent
-            retrieval.</p>
+        <h1>Five Powerful AI Capabilities</h1>
+        <p>Each feature solves a real insurance workflow problem using RAG-powered AI, vector search, and intelligent
+            retrieval. Click any feature to explore it in detail.</p>
     </div>
 
-    <!-- FEATURE 1: CLAUSE CITATION -->
-    <section class="feature-section" id="clause">
-        <div class="feature-layout">
-            <div class="feature-info reveal">
-                <div class="feature-num">01</div>
-                <div class="feature-tag">Transparency Explainable AI</div>
-                <h2>Policy Clause Citation</h2>
-                <p>Every AI-generated response includes exact references to the policy sections it draws from. Instead
-                    of vague answers, users get precise clause citations like <em>"Covered under Section 4.2
-                        Hospitalization Coverage."</em></p>
-                <p>This is made possible by the RAG pipeline â€” retrieved document chunks are mapped back to their
-                    source
-                    section before the LLM generates a response.</p>
-                <ul class="feature-points">
-                    <li>Exact section and sub-section references in every response</li>
-                    <li>Reduces hallucination by anchoring to source documents</li>
-                    <li>Builds user trust through explainable AI outputs</li>
-                    <li>Supports regulatory compliance and audit trails</li>
-                    <li>Works across multiple policy document formats</li>
+    <!-- FEATURE CARDS HUB -->
+    <main style="max-width:1100px;margin:0 auto;padding:60px 5% 100px">
+
+        <div class="features-hub-grid">
+
+            <!-- 1: Clause Citation -->
+            <a href="clause-citation.html" class="feature-hub-card reveal">
+                <div class="feature-hub-num">01</div>
+                <div class="feature-hub-icon">📌</div>
+                <div class="feature-hub-tag">Transparency · Explainable AI</div>
+                <h3>Policy Clause Citation</h3>
+                <p>Every AI response includes exact references to the policy sections it draws from. Precise, grounded,
+                    audit-ready answers — never vague.</p>
+                <ul class="feature-hub-points">
+                    <li>Exact section references in every response</li>
+                    <li>Reduces hallucination with source anchoring</li>
+                    <li>Regulatory compliance & audit trails</li>
                 </ul>
-            </div>
-            <div class="reveal reveal-delay-2">
-                <div class="mock-ui">
-                    <div class="mock-ui-header">
-                        <span class="dot dot-red"></span>
-                        <span class="dot dot-yellow"></span>
-                        <span class="dot dot-green"></span>
-                        <span class="mock-ui-title">Policy Chatbot Live Demo</span>
-                    </div>
-                    <div class="mock-ui-body">
-                        <div class="clause-chat">
-                            <div class="chat-bubble chat-user">
-                                Is knee replacement surgery covered under my health policy?
-                            </div>
-                            <div class="chat-bubble chat-bot">
-                                Yes, knee replacement surgery is covered after a 90-day waiting period for surgical
-                                procedures.
-                                <br><span class="clause-ref">Section 6.1 Surgical Procedures Coverage</span>
-                            </div>
-                            <div class="chat-bubble chat-user">
-                                What is the maximum claim limit for hospitalization?
-                            </div>
-                            <div class="chat-bubble chat-bot">
-                                The maximum annual hospitalization benefit is 5,00,000 per policy year, subject to
-                                sub-limits on room rent.
-                                <br><span class="clause-ref">Section 4.2 Hospitalization Coverage</span>
-                            </div>
-                            <div class="chat-bubble chat-user">
-                                Does maternity have a waiting period?
-                            </div>
-                            <div class="chat-bubble chat-bot">
-                                Maternity benefits are available after a 24-month continuous coverage waiting period
-                                from policy inception.
-                                <br><span class="clause-ref">ðŸ“Œ Section 8.3 â€“ Maternity &amp; Newborn
-                                    Coverage</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                <div class="feature-hub-cta">Explore Feature →</div>
+            </a>
 
-    <!-- FEATURE 2: ELIGIBILITY CHECKER -->
-    <section class="feature-section" id="eligibility">
-        <div class="feature-layout reverse">
-            <div class="feature-info reveal">
-                <div class="feature-num">02</div>
-                <div class="feature-tag">Automation Business Rules</div>
-                <h2>Claim Eligibility Checker</h2>
-                <p>Combines AI-retrieved policy conditions with hard business rules to instantly determine whether a
-                    claim qualifies. Users enter basic details and receive a clear, explainable verdict.</p>
-                <p>The system checks waiting periods, treatment categories, and policy inception dates against the
-                    policy's retrieved clauses to produce a reliable, rule-backed decision.</p>
-                <ul class="feature-points">
-                    <li>Validates waiting periods for all treatment types</li>
-                    <li>Combines RAG retrieval with deterministic rule engine</li>
-                    <li>Reduces manual claim processing time significantly</li>
-                    <li>Provides clear reasons for eligibility or rejection</li>
-                    <li>Supports maternity, surgery, dental, pre-existing &amp; more</li>
+            <!-- 2: Eligibility Checker -->
+            <a href="eligibility-checker.html" class="feature-hub-card reveal reveal-delay-1">
+                <div class="feature-hub-num">02</div>
+                <div class="feature-hub-icon">✅</div>
+                <div class="feature-hub-tag">Automation · Business Rules</div>
+                <h3>Claim Eligibility Checker</h3>
+                <p>Enter your policy start date, treatment type, and treatment date for an instant eligibility verdict —
+                    with waiting period logic and clause citations.</p>
+                <ul class="feature-hub-points">
+                    <li>7 treatment types supported</li>
+                    <li>Deterministic rule engine + RAG</li>
+                    <li>Shows days remaining if not eligible</li>
                 </ul>
-            </div>
-            <div class="reveal reveal-delay-2">
-                <div class="mock-ui">
-                    <div class="mock-ui-header">
-                        <span class="dot dot-red"></span>
-                        <span class="dot dot-yellow"></span>
-                        <span class="dot dot-green"></span>
-                        <span class="mock-ui-title">Claim Eligibility Checker</span>
-                    </div>
-                    <div class="mock-ui-body">
-                        <div class="eligibility-form" id="eligibility-form">
-                            <div class="form-group">
-                                <label for="policy-start">Policy Start Date</label>
-                                <input type="date" id="policy-start" />
-                            </div>
-                            <div class="form-group">
-                                <label for="treatment-type">Treatment Type</label>
-                                <select id="treatment-type">
-                                    <option value="" disabled selected>Select treatment type</option>
-                                    <option value="general">General Treatment (30 days wait)</option>
-                                    <option value="hospitalization">Hospitalization (30 days wait)</option>
-                                    <option value="surgery">Surgical Procedure (90 days wait)</option>
-                                    <option value="maternity">Maternity Coverage (730 days wait)</option>
-                                    <option value="pre-existing">Pre-Existing Condition (1095 days wait)</option>
-                                    <option value="dental">Dental Treatment (180 days wait)</option>
-                                    <option value="vision">Vision Care (90 days wait)</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="hosp-date">Hospitalization / Treatment Date</label>
-                                <input type="date" id="hosp-date" />
-                            </div>
-                            <button class="btn btn-primary" id="check-eligibility-btn">
-                                Check Eligibility
-                            </button>
-                            <div class="eligibility-result" id="eligibility-result"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                <div class="feature-hub-cta">Try Live Tool →</div>
+            </a>
 
-    <!-- FEATURE 3: POLICY COMPARISON -->
-    <section class="feature-section" id="comparison">
-        <div class="feature-layout">
-            <div class="feature-info reveal">
-                <div class="feature-num">03</div>
-                <div class="feature-tag">Marketplace Decision Support</div>
-                <h2>Multi-Policy Comparison</h2>
-                <p>Users can compare multiple insurance policies side-by-side using an AI-indexed comparison table. The
-                    RAG system retrieves and structures the relevant clauses from each policy for direct comparison.</p>
-                <p>This creates a marketplace-style experience and helps users make informed decisions without reading
-                    hundreds of pages.</p>
-                <ul class="feature-points">
-                    <li>Side-by-side clause-level comparison of any two policies</li>
-                    <li>AI automatically identifies comparable sections</li>
-                    <li>Highlights key differences in waiting periods &amp; limits</li>
-                    <li>Scalable to compare N policies simultaneously</li>
-                    <li>Export-ready for reports and advisory use</li>
+            <!-- 3: Policy Comparison -->
+            <a href="policy-comparison.html" class="feature-hub-card reveal reveal-delay-2">
+                <div class="feature-hub-num">03</div>
+                <div class="feature-hub-icon">⚖️</div>
+                <div class="feature-hub-tag">Marketplace · Decision Support</div>
+                <h3>Multi-Policy Comparison</h3>
+                <p>Select any two uploaded policies and compare them side-by-side on 12 key fields — live data from
+                    Supabase, no manual effort.</p>
+                <ul class="feature-hub-points">
+                    <li>12 structured fields compared</li>
+                    <li>Live from Supabase database</li>
+                    <li>3 sample policies ready to compare</li>
                 </ul>
-            </div>
-            <div class="reveal reveal-delay-2">
-                <div class="mock-ui">
-                    <div class="mock-ui-header">
-                        <span class="dot dot-red"></span>
-                        <span class="dot dot-yellow"></span>
-                        <span class="dot dot-green"></span>
-                        <span class="mock-ui-title">⚖️ Policy Comparison Tool — Live</span>
-                    </div>
-                    <div class="mock-ui-body" id="compare-widget" style="padding:18px">
+                <div class="feature-hub-cta">Compare Policies →</div>
+            </a>
 
-                        <!-- Policy selectors -->
-                        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px">
-                            <div>
-                                <label
-                                    style="font-size:0.72rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;display:block;margin-bottom:6px">🅰
-                                    Policy A</label>
-                                <select id="policy-select-a" class="compare-select">
-                                    <option value="">Loading policies…</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label
-                                    style="font-size:0.72rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;display:block;margin-bottom:6px">🅱
-                                    Policy B</label>
-                                <select id="policy-select-b" class="compare-select">
-                                    <option value="">Loading policies…</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <button id="compare-btn" class="btn btn-primary btn-sm"
-                            style="width:100%;justify-content:center;margin-bottom:16px">
-                            ⚖️ Compare Policies
-                        </button>
-
-                        <!-- Results area -->
-                        <div id="compare-result">
-                            <div style="text-align:center;padding:24px;color:var(--text-dim);font-size:0.85rem">
-                                📂 Upload policies in the Admin Dashboard, then select two to compare.
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FEATURE 4: ADMIN ANALYTICS -->
-    <section class="feature-section" id="analytics">
-        <div class="feature-layout reverse">
-            <div class="feature-info reveal">
-                <div class="feature-num">04</div>
-                <div class="feature-tag">Analytics Business Insights</div>
-                <h2>Admin Dashboard Analytics</h2>
-                <p>A comprehensive admin interface for policy managers and system administrators. Provides real-time
-                    insights into system usage, top queries, active users, and uploaded policy documents.</p>
-                <p>Enables continuous improvement of the RAG system by monitoring what users ask most, identifying gaps
-                    in policy coverage, and tracking retrieval performance.</p>
-                <ul class="feature-points">
-                    <li>Upload and index new policy documents instantly</li>
-                    <li>Track total queries processed per day / week</li>
-                    <li>Monitor top FAQ patterns to improve policy clarity</li>
-                    <li>View active user sessions and engagement metrics</li>
-                    <li>Activity log for all system events and uploads</li>
+            <!-- 4: AI Chatbot -->
+            <a href="ai-chatbot.html" class="feature-hub-card reveal reveal-delay-3">
+                <div class="feature-hub-num">04</div>
+                <div class="feature-hub-icon">💬</div>
+                <div class="feature-hub-tag">Live Demo · Natural Language</div>
+                <h3>AI Insurance Chatbot</h3>
+                <p>Ask any question about your insurance policy in plain language and get instant, clause-cited answers
+                    from the RAG pipeline — 24/7 available.</p>
+                <ul class="feature-hub-points">
+                    <li>Natural language Q&A on any policy topic</li>
+                    <li>Clause citations in every response</li>
+                    <li>8 suggested questions to start</li>
                 </ul>
-                <div style="margin-top:24 px">
-                    <a href="admin.html" class="btn btn-primary">Open Full Dashboard </a>
-                </div>
+                <div class="feature-hub-cta">Chat Now →</div>
+            </a>
+
+            <!-- 5: Policy Tracker -->
+            <a href="policy-tracker.html" class="feature-hub-card reveal reveal-delay-4">
+                <div class="feature-hub-num">05</div>
+                <div class="feature-hub-icon">📋</div>
+                <div class="feature-hub-tag">Enterprise · Audit Trail</div>
+                <h3>Policy Version Change Tracker</h3>
+                <p>Compare any two versions of an insurance policy and see every clause that was added, removed, or
+                    modified — with word-level diff highlighting.</p>
+                <ul class="feature-hub-points">
+                    <li>4 policy versions (2022–2025)</li>
+                    <li>Added / Removed / Modified detection</li>
+                    <li>Side-by-side diff view</li>
+                </ul>
+                <div class="feature-hub-cta">Track Changes →</div>
+            </a>
+
+            <!-- 6: Admin Dashboard -->
+            <a href="admin.html" class="feature-hub-card reveal reveal-delay-4"
+                style="border-color:rgba(99,102,241,0.3)">
+                <div class="feature-hub-num">06</div>
+                <div class="feature-hub-icon">📊</div>
+                <div class="feature-hub-tag">Analytics · System Admin</div>
+                <h3>Admin Analytics Dashboard</h3>
+                <p>Upload and index new policy documents, monitor query volume, view top FAQs, track active users, and
+                    see activity logs in real time.</p>
+                <ul class="feature-hub-points">
+                    <li>Real-time query volume charts</li>
+                    <li>Policy upload and indexing</li>
+                    <li>Activity log and system metrics</li>
+                </ul>
+                <div class="feature-hub-cta">Open Dashboard →</div>
+            </a>
+
+        </div>
+
+        <!-- QUICK STATS -->
+        <div class="reveal" style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:48px">
+            <div class="stat-card">
+                <div class="stat-value" data-target="5" data-suffix="">0</div>
+                <div class="stat-label">AI Features</div>
+                <div class="stat-change up">All live</div>
             </div>
-            <div class="reveal reveal-delay-2">
-                <div class="mock-ui">
-                    <div class="mock-ui-header">
-                        <span class="dot dot-red"></span>
-                        <span class="dot dot-yellow"></span>
-                        <span class="dot dot-green"></span>
-                        <span class="mock-ui-title">Admin Dashboard Preview</span>
-                    </div>
-                    <div class="mock-ui-body">
-                        <div class="admin-preview-grid">
-                            <div class="admin-mini-card">
-                                <div class="amt">1,247</div>
-                                <div class="lbl">Total Queries</div>
-                            </div>
-                            <div class="admin-mini-card">
-                                <div class="amt">84</div>
-                                <div class="lbl">Active Users</div>
-                            </div>
-                            <div class="admin-mini-card">
-                                <div class="amt">12</div>
-                                <div class="lbl">Policies Indexed</div>
-                            </div>
-                            <div class="admin-mini-card">
-                                <div class="amt">96%</div>
-                                <div class="lbl">Accuracy Rate</div>
-                            </div>
-                        </div>
-                        <div style="margin-top:14 px">
-                            <div
-                                style="font-size:0.76 rem;font-weight:600;color:var(--text-muted);margin-bottom:9px;text-transform:uppercase;letter-spacing:0.5px">
-                                Top Asked Questions</div>
-                            <div class="question-item" style="padding:7px 0">
-                                <div class="q-rank">1</div>
-                                <div style="flex:1">
-                                    <div class="q-text" style="font-size:0.8rem">What is covered under hospitalization?
-                                    </div>
-                                    <div class="q-bar">
-                                        <div class="q-bar-fill" style="width:85%"></div>
-                                    </div>
-                                </div>
-                                <div class="q-count">312</div>
-                            </div>
-                            <div class="question-item" style="padding:7px 0">
-                                <div class="q-rank">2</div>
-                                <div style="flex:1">
-                                    <div class="q-text" style="font-size:0.8rem">Maternity waiting period?</div>
-                                    <div class="q-bar">
-                                        <div class="q-bar-fill" style="width:60%"></div>
-                                    </div>
-                                </div>
-                                <div class="q-count">198</div>
-                            </div>
-                            <div class="question-item" style="padding:7px 0">
-                                <div class="q-rank">3</div>
-                                <div style="flex:1">
-                                    <div class="q-text" style="font-size:0.8rem">Pre-existing disease coverage rules?
-                                    </div>
-                                    <div class="q-bar">
-                                        <div class="q-bar-fill" style="width:45%"></div>
-                                    </div>
-                                </div>
-                                <div class="q-count">143</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="stat-card">
+                <div class="stat-value" data-target="95" data-suffix="%">0%</div>
+                <div class="stat-label">Answer Accuracy</div>
+                <div class="stat-change up">RAG-grounded</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" data-target="2" data-suffix="s">0s</div>
+                <div class="stat-label">Avg Response</div>
+                <div class="stat-change up">Sub-2 seconds</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" data-target="4" data-suffix="">0</div>
+                <div class="stat-label">Policy Versions</div>
+                <div class="stat-change up">2022–2025</div>
             </div>
         </div>
-    </section>
 
-    <!-- LIVE CHATBOT SECTION -->
-    <section class="feature-section chatbot-section" id="chatbot"
-        style="background:linear-gradient(135deg,rgba(99,102,241,0.07) 0%,rgba(6,182,212,0.04) 100%);border-bottom:1px solid var(--glass-border)">
-        <div style="max-width:800px;margin:0 auto">
-            <div class="section-header reveal" style="margin-bottom:40px">
-                <div class="section-tag">Live Demo</div>
-                <h2>💬 Ask the AI Insurance Assistant</h2>
-                <p>Ask any question about your insurance policy — get instant, clause-backed AI answers.</p>
-            </div>
-
-            <!-- Suggested Questions -->
-            <div class="suggest-chips reveal">
-                <button class="chip" onclick="askSuggested(this)">What is covered under hospitalization?</button>
-                <button class="chip" onclick="askSuggested(this)">What is the maternity waiting period?</button>
-                <button class="chip" onclick="askSuggested(this)">What is the room rent sub-limit?</button>
-                <button class="chip" onclick="askSuggested(this)">How to file a cashless claim?</button>
-                <button class="chip" onclick="askSuggested(this)">Does the policy cover dental treatment?</button>
-            </div>
-
-            <!-- Chat Window -->
-            <div class="live-chat-window reveal">
-                <div class="live-chat-header">
-                    <div style="display:flex;align-items:center;gap:10px">
-                        <div class="chat-avatar-ai">🤖</div>
-                        <div>
-                            <div style="font-weight:700;color:#fff;font-size:0.95rem">RAG Insurance AI</div>
-                            <div style="font-size:0.75rem;color:var(--success);display:flex;align-items:center;gap:5px">
-                                <span
-                                    style="width:6px;height:6px;background:var(--success);border-radius:50%;display:inline-block"></span>
-                                Online · Powered by RAG
-                            </div>
-                        </div>
-                    </div>
-                    <button class="chat-clear-btn" onclick="clearChat()" title="Clear chat">🗑️</button>
-                </div>
-
-                <div class="live-chat-messages" id="chat-messages">
-                    <!-- Welcome message -->
-                    <div class="chat-row chat-row--ai">
-                        <div class="chat-avatar-ai">🤖</div>
-                        <div class="chat-bubble-ai">
-                            👋 Hello! I'm your RAG Insurance Assistant. Ask me anything about your insurance policy —
-                            waiting periods, coverage, claims, benefits, and more!
-                        </div>
-                    </div>
-                </div>
-
-                <form class="live-chat-form" id="chat-form">
-                    <input type="text" id="chat-input" class="live-chat-input"
-                        placeholder="Ask anything about your policy... e.g. 'What is the waiting period for surgery?'"
-                        autocomplete="off" maxlength="300" />
-                    <button type="submit" class="live-chat-send" id="chat-send-btn">
-                        <span>Send</span> ➤
-                    </button>
-                </form>
-                <div style="text-align:center;font-size:0.72rem;color:var(--text-dim);padding:8px 0 4px">
-                    🔒 All conversations are saved securely · Powered by RAG + Supabase
-                </div>
-            </div>
-        </div>
-    </section>
+    </main>
 
     <!-- FOOTER -->
     <footer>
         <div class="footer-grid">
             <div class="footer-brand">
-                <div class="nav-logo" style="position:static">
-                    <span style="color:#fff;font-size:1.05rem;font-weight:700">RAG<span
-                            style="color:var(--primary-light)">Insurance</span></span>
-                </div>
+                <div class="nav-logo" style="position:static"><span
+                        style="color:#fff;font-size:1.05rem;font-weight:700">RAG<span
+                            style="color:var(--primary-light)">Insurance</span></span></div>
                 <p>AI-powered insurance policy assistant using Retrieval-Augmented Generation for explainable, grounded
                     responses.</p>
             </div>
             <div class="footer-col">
-                <h5>Navigation</h5>
-                <a href="index.html">Home</a>
-                <a href="features.html">Features</a>
-                <a href="admin.html">Admin Dashboard</a>
+                <h5>Features</h5>
+                <a href="clause-citation.html">Clause Citation</a>
+                <a href="eligibility-checker.html">Eligibility Checker</a>
+                <a href="policy-comparison.html">Policy Comparison</a>
+                <a href="ai-chatbot.html">AI Chatbot</a>
+                <a href="policy-tracker.html">Version Tracker</a>
             </div>
             <div class="footer-col">
-                <h5>Features</h5>
-                <a href="#clause">Clause Citation</a>
-                <a href="#eligibility">Eligibility Checker</a>
-                <a href="#comparison">Policy Comparison</a>
-                <a href="#analytics">Analytics</a>
+                <h5>Navigation</h5>
+                <a href="index.html">Home</a>
+                <a href="features.html">All Features</a>
+                <a href="admin.html">Admin Dashboard</a>
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
-    <!-- 
-    🔧 API CONFIG — Update this URL after deploying your backend to Render
-    Local dev:   http://localhost:5000
-    Production:  https://your-app-name.onrender.com
-  -->
-    <script>
-        window.ENV_API_URL = "https://rag-insurance-assistant.onrender.com";
-    </script>
+    <script>window.ENV_API_URL = "https://rag-insurance-assistant.onrender.com";</script>
 </body>
 
 </html>

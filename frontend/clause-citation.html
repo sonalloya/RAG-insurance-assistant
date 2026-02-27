@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Policy Clause Citation – RAG Insurance Assistant</title>
+    <meta name="description"
+        content="Every AI response cites the exact policy clause it draws from. Transparent, grounded, explainable insurance answers." />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-logo"><span>RAG<span>Insurance</span></span></div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="features.html" class="active">Features</a>
+            <a href="policy-tracker.html">Policy Tracker</a>
+            <a href="admin.html">Admin Dashboard</a>
+            <a href="admin.html" class="nav-cta">Try Dashboard</a>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </nav>
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="index.html">🏠 Home</a>
+        <a href="features.html" class="active">⚡ Features</a>
+        <a href="policy-tracker.html">📋 Policy Tracker</a>
+        <a href="admin.html">📊 Admin Dashboard</a>
+    </div>
+
+    <!-- HERO -->
+    <div class="page-header feature-hero"
+        style="background:radial-gradient(ellipse 80% 50% at 50% -10%,rgba(99,102,241,0.3) 0%,transparent 70%),var(--bg)">
+        <a href="features.html" class="feature-back-link">← Back to All Features</a>
+        <div class="feature-num" style="font-size:3rem;margin-bottom:12px">01</div>
+        <div class="section-tag">Transparency · Explainable AI</div>
+        <h1>Policy Clause Citation</h1>
+        <p>Every AI-generated response includes exact references to the policy sections it draws from — not vague
+            answers, but clause-level precision.</p>
+        <div class="feature-hero-pills">
+            <span>📌 Exact Section References</span>
+            <span>🔍 RAG-Grounded</span>
+            <span>✅ Audit-Ready</span>
+        </div>
+    </div>
+
+    <main style="max-width:1100px;margin:0 auto;padding:60px 5% 100px">
+
+        <!-- TWO-COL: explainer + live demo -->
+        <div class="feature-layout reveal" style="margin-bottom:60px">
+            <div class="feature-info">
+                <h2>How It Works</h2>
+                <p>The RAG pipeline retrieves the most relevant chunks from your indexed policy documents for any
+                    question asked. Those retrieved chunks are mapped back to their original section before the LLM
+                    generates a response — ensuring every answer is anchored to real clauses.</p>
+                <p>Instead of "Yes, surgery is covered", users get "Yes, covered under <em>Section 6.1 – Surgical
+                        Procedures</em>." That's the difference between a chatbot and a compliance-grade AI assistant.
+                </p>
+                <ul class="feature-points">
+                    <li>Exact section and sub-section references in every response</li>
+                    <li>Reduces hallucination by anchoring to source documents</li>
+                    <li>Builds user trust through explainable AI outputs</li>
+                    <li>Supports regulatory compliance and audit trails</li>
+                    <li>Works across multiple policy document formats (PDF, JSON, DOCX)</li>
+                    <li>Clause references are clickable and traceable</li>
+                </ul>
+            </div>
+            <div class="reveal reveal-delay-2">
+                <div class="mock-ui">
+                    <div class="mock-ui-header">
+                        <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span
+                            class="dot dot-green"></span>
+                        <span class="mock-ui-title">Policy Chatbot — Clause Citation Live</span>
+                    </div>
+                    <div class="mock-ui-body">
+                        <div class="clause-chat">
+                            <div class="chat-bubble chat-user">Is knee replacement surgery covered?</div>
+                            <div class="chat-bubble chat-bot">Yes, knee replacement is covered after a 90-day waiting
+                                period.<br><span class="clause-ref">📌 Section 6.1 – Surgical Procedures Coverage</span>
+                            </div>
+                            <div class="chat-bubble chat-user">What is the max hospitalization limit?</div>
+                            <div class="chat-bubble chat-bot">The maximum is ₹5,00,000 per policy year, with sub-limits
+                                on room rent.<br><span class="clause-ref">📌 Section 4.2 – Hospitalization Coverage
+                                    Limits</span></div>
+                            <div class="chat-bubble chat-user">Does maternity have a waiting period?</div>
+                            <div class="chat-bubble chat-bot">Yes — 24-month continuous coverage waiting period from
+                                policy inception.<br><span class="clause-ref">📌 Section 8.3 – Maternity & Newborn
+                                    Coverage</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- HOW CITATIONS WORK -->
+        <div class="reveal"
+            style="background:var(--bg-card);border:1px solid var(--glass-border);border-radius:var(--radius);padding:36px 40px;margin-bottom:40px">
+            <h2 style="font-size:1.4rem;font-weight:800;color:#fff;margin-bottom:24px">RAG Citation Pipeline</h2>
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+                <div class="pipeline-step">
+                    <div class="pipeline-icon">❓</div>
+                    <div class="pipeline-title">User Question</div>
+                    <div class="pipeline-desc">Customer asks a natural language question about their policy</div>
+                </div>
+                <div class="pipeline-step">
+                    <div class="pipeline-icon">🔍</div>
+                    <div class="pipeline-title">Semantic Search</div>
+                    <div class="pipeline-desc">Vector embeddings retrieve the top-K relevant policy chunks</div>
+                </div>
+                <div class="pipeline-step">
+                    <div class="pipeline-icon">📄</div>
+                    <div class="pipeline-title">Clause Mapping</div>
+                    <div class="pipeline-desc">Each chunk is mapped to its originating section and sub-section</div>
+                </div>
+                <div class="pipeline-step">
+                    <div class="pipeline-icon">✅</div>
+                    <div class="pipeline-title">Cited Response</div>
+                    <div class="pipeline-desc">LLM generates answer with exact clause references included</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BENEFITS -->
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px" class="reveal">
+            <div class="highlight-card">
+                <div style="font-size:1.6rem;margin-bottom:10px">🔒</div>
+                <h4>Compliance Ready</h4>
+                <p>Every answer is traceable to a source document — essential for IRDAI and regulatory audits.</p>
+            </div>
+            <div class="highlight-card">
+                <div style="font-size:1.6rem;margin-bottom:10px">🎯</div>
+                <h4>Zero Hallucination</h4>
+                <p>By citing actual clauses, the system can't fabricate policy terms that don't exist in the document.
+                </p>
+            </div>
+            <div class="highlight-card">
+                <div style="font-size:1.6rem;margin-bottom:10px">⚡</div>
+                <h4>Instant Lookup</h4>
+                <p>What takes a human 20 minutes of document searching, RAG does in under 2 seconds.</p>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div style="text-align:center;padding:40px;background:var(--bg-card);border:1px solid var(--glass-border);border-radius:var(--radius)"
+            class="reveal">
+            <h3 style="font-size:1.3rem;font-weight:800;color:#fff;margin-bottom:10px">Try It Live</h3>
+            <p style="color:var(--text-muted);margin-bottom:24px">Ask any policy question and see the clause citation in
+                the AI Chatbot</p>
+            <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+                <a href="ai-chatbot.html" class="btn btn-primary">💬 Open AI Chatbot</a>
+                <a href="features.html" class="btn btn-outline">← All Features</a>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="nav-logo" style="position:static"><span
+                        style="color:#fff;font-size:1.05rem;font-weight:700">RAG<span
+                            style="color:var(--primary-light)">Insurance</span></span></div>
+                <p>AI-powered insurance policy assistant using Retrieval-Augmented Generation.</p>
+            </div>
+            <div class="footer-col">
+                <h5>Features</h5>
+                <a href="clause-citation.html">Clause Citation</a>
+                <a href="eligibility-checker.html">Eligibility Checker</a>
+                <a href="policy-comparison.html">Policy Comparison</a>
+                <a href="ai-chatbot.html">AI Chatbot</a>
+                <a href="policy-tracker.html">Policy Tracker</a>
+            </div>
+            <div class="footer-col">
+                <h5>Navigation</h5>
+                <a href="index.html">Home</a>
+                <a href="features.html">All Features</a>
+                <a href="admin.html">Admin Dashboard</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>window.ENV_API_URL = "https://rag-insurance-assistant.onrender.com";</script>
+</body>
+
+</html>

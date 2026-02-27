@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Insurance Chatbot – RAG Insurance Assistant</title>
+    <meta name="description"
+        content="Ask any question about your insurance policy. Get instant, clause-backed AI answers powered by RAG + Supabase." />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-logo"><span>RAG<span>Insurance</span></span></div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="features.html" class="active">Features</a>
+            <a href="policy-tracker.html">Policy Tracker</a>
+            <a href="admin.html">Admin Dashboard</a>
+            <a href="admin.html" class="nav-cta">Try Dashboard</a>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </nav>
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="index.html">🏠 Home</a>
+        <a href="features.html" class="active">⚡ Features</a>
+        <a href="policy-tracker.html">📋 Policy Tracker</a>
+        <a href="admin.html">📊 Admin Dashboard</a>
+    </div>
+
+    <!-- HERO -->
+    <div class="page-header feature-hero"
+        style="background:radial-gradient(ellipse 80% 50% at 50% -10%,rgba(6,182,212,0.2) 0%,rgba(99,102,241,0.15) 50%,transparent 70%),var(--bg);padding-bottom:40px">
+        <a href="features.html" class="feature-back-link">← Back to All Features</a>
+        <div class="feature-num" style="font-size:3rem;margin-bottom:12px">05</div>
+        <div class="section-tag">Live Demo · RAG-Powered</div>
+        <h1>💬 AI Insurance Assistant Chatbot</h1>
+        <p>Ask any question about your insurance policy and get instant, clause-cited answers — powered by
+            Retrieval-Augmented Generation and Supabase vector search.</p>
+        <div class="feature-hero-pills">
+            <span>🤖 RAG-Powered</span>
+            <span>📌 Clause Citations</span>
+            <span>⚡ &lt;2s Response</span>
+        </div>
+    </div>
+
+    <main style="max-width:900px;margin:0 auto;padding:40px 5% 100px">
+
+        <!-- Suggested Questions -->
+        <div class="suggest-chips reveal" style="margin-bottom:24px">
+            <button class="chip" onclick="askSuggested(this)">What is covered under hospitalization?</button>
+            <button class="chip" onclick="askSuggested(this)">What is the maternity waiting period?</button>
+            <button class="chip" onclick="askSuggested(this)">What is the room rent sub-limit?</button>
+            <button class="chip" onclick="askSuggested(this)">How to file a cashless claim?</button>
+            <button class="chip" onclick="askSuggested(this)">Does the policy cover dental treatment?</button>
+            <button class="chip" onclick="askSuggested(this)">Is knee replacement surgery covered?</button>
+            <button class="chip" onclick="askSuggested(this)">What is the no claim bonus?</button>
+            <button class="chip" onclick="askSuggested(this)">How many network hospitals are covered?</button>
+        </div>
+
+        <!-- Chat Window -->
+        <div class="live-chat-window reveal">
+            <div class="live-chat-header">
+                <div style="display:flex;align-items:center;gap:10px">
+                    <div class="chat-avatar-ai">🤖</div>
+                    <div>
+                        <div style="font-weight:700;color:#fff;font-size:0.95rem">RAG Insurance AI</div>
+                        <div style="font-size:0.75rem;color:var(--success);display:flex;align-items:center;gap:5px">
+                            <span
+                                style="width:6px;height:6px;background:var(--success);border-radius:50%;display:inline-block"></span>
+                            Online · Powered by RAG + Supabase
+                        </div>
+                    </div>
+                </div>
+                <button class="chat-clear-btn" onclick="clearChat()" title="Clear chat">🗑️</button>
+            </div>
+
+            <div class="live-chat-messages" id="chat-messages">
+                <div class="chat-row chat-row--ai">
+                    <div class="chat-avatar-ai">🤖</div>
+                    <div class="chat-bubble-ai">
+                        👋 Hello! I'm your RAG Insurance Assistant. Ask me anything about your insurance policy —
+                        waiting periods, coverage, claims, benefits, and more! Every answer includes the exact policy
+                        section it came from.
+                    </div>
+                </div>
+            </div>
+
+            <form class="live-chat-form" id="chat-form">
+                <input type="text" id="chat-input" class="live-chat-input"
+                    placeholder="Ask anything about your policy... e.g. 'What is the waiting period for surgery?'"
+                    autocomplete="off" maxlength="300" />
+                <button type="submit" class="live-chat-send" id="chat-send-btn">
+                    <span>Send</span> ➤
+                </button>
+            </form>
+            <div style="text-align:center;font-size:0.72rem;color:var(--text-dim);padding:8px 0 4px">
+                🔒 All conversations are private · Powered by RAG + Supabase vector search
+            </div>
+        </div>
+
+        <!-- HOW IT WORKS -->
+        <div class="reveal"
+            style="background:var(--bg-card);border:1px solid var(--glass-border);border-radius:var(--radius);padding:36px 40px;margin-top:40px">
+            <h2 style="font-size:1.3rem;font-weight:800;color:#fff;margin-bottom:20px">How the AI Chatbot Works</h2>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+                <div class="pipeline-step">
+                    <div class="pipeline-icon">❓</div>
+                    <div class="pipeline-title">You Ask</div>
+                    <div class="pipeline-desc">Type any insurance question in natural language — no need for exact
+                        keywords</div>
+                </div>
+                <div class="pipeline-step">
+                    <div class="pipeline-icon">🔍</div>
+                    <div class="pipeline-title">RAG Searches</div>
+                    <div class="pipeline-desc">Supabase vector search finds the most relevant policy clauses in
+                        milliseconds</div>
+                </div>
+                <div class="pipeline-step">
+                    <div class="pipeline-icon">📌</div>
+                    <div class="pipeline-title">Cited Answer</div>
+                    <div class="pipeline-desc">LLM generates a precise answer citing the exact policy section it used
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BENEFIT CARDS -->
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px" class="reveal">
+            <div class="highlight-card">
+                <div style="font-size:1.4rem;margin-bottom:8px">🧠</div>
+                <h4>Context-Aware</h4>
+                <p>Understands complex policy questions and handles follow-ups within the conversation.</p>
+            </div>
+            <div class="highlight-card">
+                <div style="font-size:1.4rem;margin-bottom:8px">🛡️</div>
+                <h4>No Hallucination</h4>
+                <p>Only answers from what's in the indexed policy documents — never makes up information.</p>
+            </div>
+            <div class="highlight-card">
+                <div style="font-size:1.4rem;margin-bottom:8px">🌐</div>
+                <h4>24/7 Available</h4>
+                <p>Customers get answers at any time without waiting for a human agent.</p>
+            </div>
+        </div>
+
+        <!-- NOTE about Render cold start -->
+        <div style="margin-top:24px;padding:14px 18px;background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.25);border-radius:var(--radius-sm);font-size:0.82rem;color:var(--text-muted)"
+            class="reveal">
+            ⚠️ <strong style="color:#fbbf24">Note:</strong> The backend is hosted on Render's free plan. On first
+            request after inactivity, it may take 30–60 seconds to wake up. If you see a network error, wait 30 seconds
+            and try again.
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="nav-logo" style="position:static"><span
+                        style="color:#fff;font-size:1.05rem;font-weight:700">RAG<span
+                            style="color:var(--primary-light)">Insurance</span></span></div>
+                <p>AI-powered insurance policy assistant using Retrieval-Augmented Generation.</p>
+            </div>
+            <div class="footer-col">
+                <h5>Features</h5>
+                <a href="clause-citation.html">Clause Citation</a>
+                <a href="eligibility-checker.html">Eligibility Checker</a>
+                <a href="policy-comparison.html">Policy Comparison</a>
+                <a href="ai-chatbot.html">AI Chatbot</a>
+                <a href="policy-tracker.html">Policy Tracker</a>
+            </div>
+            <div class="footer-col">
+                <h5>Navigation</h5>
+                <a href="index.html">Home</a>
+                <a href="features.html">All Features</a>
+                <a href="admin.html">Admin Dashboard</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>window.ENV_API_URL = "https://rag-insurance-assistant.onrender.com";</script>
+</body>
+
+</html>

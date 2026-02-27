@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multi-Policy Comparison – RAG Insurance Assistant</title>
+    <meta name="description"
+        content="Compare two insurance policies side-by-side on 12 key fields. Real data from Supabase, powered by RAG." />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-logo"><span>RAG<span>Insurance</span></span></div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="features.html" class="active">Features</a>
+            <a href="policy-tracker.html">Policy Tracker</a>
+            <a href="admin.html">Admin Dashboard</a>
+            <a href="admin.html" class="nav-cta">Try Dashboard</a>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </nav>
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="index.html">🏠 Home</a>
+        <a href="features.html" class="active">⚡ Features</a>
+        <a href="policy-tracker.html">📋 Policy Tracker</a>
+        <a href="admin.html">📊 Admin Dashboard</a>
+    </div>
+
+    <!-- HERO -->
+    <div class="page-header feature-hero"
+        style="background:radial-gradient(ellipse 80% 50% at 50% -10%,rgba(6,182,212,0.25) 0%,transparent 70%),var(--bg)">
+        <a href="features.html" class="feature-back-link">← Back to All Features</a>
+        <div class="feature-num" style="font-size:3rem;margin-bottom:12px">03</div>
+        <div class="section-tag">Marketplace · Decision Support</div>
+        <h1>Multi-Policy Comparison</h1>
+        <p>Select any two uploaded policies from the database and compare them side-by-side across 12 key fields —
+            loaded live from Supabase.</p>
+        <div class="feature-hero-pills">
+            <span>📊 12 Fields Compared</span>
+            <span>🗄️ Live from Supabase</span>
+            <span>⚖️ Side-by-Side</span>
+        </div>
+    </div>
+
+    <main style="max-width:1100px;margin:0 auto;padding:60px 5% 100px">
+
+        <!-- LIVE COMPARISON WIDGET — full width -->
+        <div class="reveal"
+            style="background:var(--bg-card);border:1px solid var(--glass-border);border-radius:var(--radius);padding:36px 40px;margin-bottom:40px">
+            <div style="margin-bottom:24px">
+                <div
+                    style="font-size:0.7rem;font-weight:700;color:var(--primary-light);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px">
+                    Live Tool</div>
+                <h2 style="font-size:1.4rem;font-weight:800;color:#fff;margin-bottom:6px">⚖️ Policy Comparison Tool</h2>
+                <p style="color:var(--text-muted);font-size:0.88rem">Upload policies via the Admin Dashboard, then
+                    select two below to compare. Results are fetched live from your Supabase database.</p>
+            </div>
+
+            <!-- Selectors -->
+            <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:center;margin-bottom:20px">
+                <div>
+                    <label
+                        style="font-size:0.72rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;display:block;margin-bottom:6px">🅰
+                        Policy A</label>
+                    <select id="policy-select-a" class="compare-select"></select>
+                </div>
+                <div style="text-align:center;font-size:1.6rem;color:var(--primary-light);opacity:0.7">⇒</div>
+                <div>
+                    <label
+                        style="font-size:0.72rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;display:block;margin-bottom:6px">🅱
+                        Policy B</label>
+                    <select id="policy-select-b" class="compare-select"></select>
+                </div>
+            </div>
+            <button id="compare-btn" class="btn btn-primary"
+                style="width:100%;justify-content:center;margin-bottom:20px">⚖️ Compare Policies</button>
+            <div id="compare-result">
+                <div style="text-align:center;padding:24px;color:var(--text-dim);font-size:0.85rem">
+                    📂 Upload policies in the <a href="admin.html" style="color:var(--primary-light)">Admin
+                        Dashboard</a>, then select two to compare.
+                </div>
+            </div>
+        </div>
+
+        <!-- ABOUT section -->
+        <div class="feature-layout reveal" style="margin-bottom:40px">
+            <div class="feature-info">
+                <h2>Why Multi-Policy Comparison?</h2>
+                <p>Insurance buyers face a daunting task — comparing multiple policies that each run hundreds of pages.
+                    Our RAG system extracts structured comparison fields from each policy document automatically when
+                    you upload them as JSON.</p>
+                <p>Every comparison field — sum insured, waiting periods, maternity, dental — is extracted by the
+                    backend and stored in Supabase. The comparison widget fetches this live, so results always reflect
+                    the latest uploaded policies.</p>
+                <ul class="feature-points">
+                    <li>Side-by-side comparison on 12 structured fields</li>
+                    <li>Fields extracted automatically on upload (JSON parsing)</li>
+                    <li>Live data from Supabase — always up to date</li>
+                    <li>Supports HealthShield Pro, MedGuard Plus, CarePlus Basic and any future uploads</li>
+                    <li>Scalable to compare N policies with minor changes</li>
+                </ul>
+            </div>
+            <div class="reveal reveal-delay-2" style="display:flex;flex-direction:column;gap:14px">
+                <div class="highlight-card">
+                    <div style="font-size:1.4rem;margin-bottom:8px">🗄️</div>
+                    <h4>3 Policies Ready</h4>
+                    <p>HealthShield Pro · MedGuard Plus · CarePlus Basic — upload and compare today.</p>
+                </div>
+                <div class="highlight-card">
+                    <div style="font-size:1.4rem;margin-bottom:8px">🧠</div>
+                    <h4>AI-Extracted Fields</h4>
+                    <p>Waiting periods, room rent, maternity limits, NCB — all parsed from policy JSON on upload.</p>
+                </div>
+                <div class="highlight-card">
+                    <div style="font-size:1.4rem;margin-bottom:8px">📈</div>
+                    <h4>Marketplace Ready</h4>
+                    <p>This pattern powers the comparison tools in leading insurance aggregator platforms.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div style="text-align:center;padding:40px;background:var(--bg-card);border:1px solid var(--glass-border);border-radius:var(--radius)"
+            class="reveal">
+            <h3 style="font-size:1.3rem;font-weight:800;color:#fff;margin-bottom:10px">Track How Policies Change Over
+                Time</h3>
+            <p style="color:var(--text-muted);margin-bottom:24px">See added, removed and modified clauses between 4
+                policy versions</p>
+            <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+                <a href="policy-tracker.html" class="btn btn-primary">📋 Policy Version Tracker</a>
+                <a href="features.html" class="btn btn-outline">← All Features</a>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="nav-logo" style="position:static"><span
+                        style="color:#fff;font-size:1.05rem;font-weight:700">RAG<span
+                            style="color:var(--primary-light)">Insurance</span></span></div>
+                <p>AI-powered insurance policy assistant using Retrieval-Augmented Generation.</p>
+            </div>
+            <div class="footer-col">
+                <h5>Features</h5>
+                <a href="clause-citation.html">Clause Citation</a>
+                <a href="eligibility-checker.html">Eligibility Checker</a>
+                <a href="policy-comparison.html">Policy Comparison</a>
+                <a href="ai-chatbot.html">AI Chatbot</a>
+                <a href="policy-tracker.html">Policy Tracker</a>
+            </div>
+            <div class="footer-col">
+                <h5>Navigation</h5>
+                <a href="index.html">Home</a>
+                <a href="features.html">All Features</a>
+                <a href="admin.html">Admin Dashboard</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>window.ENV_API_URL = "https://rag-insurance-assistant.onrender.com";</script>
+</body>
+
+</html>
