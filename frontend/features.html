@@ -53,7 +53,8 @@
                 <p>Every AI-generated response includes exact references to the policy sections it draws from. Instead
                     of vague answers, users get precise clause citations like <em>"Covered under Section 4.2 â€“
                         Hospitalization Coverage."</em></p>
-                <p>This is made possible by the RAG pipeline â€” retrieved document chunks are mapped back to their source
+                <p>This is made possible by the RAG pipeline â€” retrieved document chunks are mapped back to their
+                    source
                     section before the LLM generates a response.</p>
                 <ul class="feature-points">
                     <li>Exact section and sub-section references in every response</li>
@@ -95,7 +96,8 @@
                             <div class="chat-bubble chat-bot">
                                 Maternity benefits are available after a 24-month continuous coverage waiting period
                                 from policy inception.
-                                <br><span class="clause-ref">ðŸ“Œ Section 8.3 â€“ Maternity &amp; Newborn Coverage</span>
+                                <br><span class="clause-ref">ðŸ“Œ Section 8.3 â€“ Maternity &amp; Newborn
+                                    Coverage</span>
                             </div>
                         </div>
                     </div>
@@ -197,7 +199,8 @@
                             <thead>
                                 <tr>
                                     <th>Feature / Benefit</th>
-                                    <th>ðŸ…° Policy A<br><small style="color:var(--text-dim);font-weight:400">HealthShield
+                                    <th>ðŸ…° Policy A<br><small
+                                            style="color:var(--text-dim);font-weight:400">HealthShield
                                             Pro</small></th>
                                     <th>ðŸ…± Policy B<br><small style="color:var(--text-dim);font-weight:400">MedGuard
                                             Plus</small></th>
@@ -344,6 +347,68 @@
         </div>
     </section>
 
+    <!-- LIVE CHATBOT SECTION -->
+    <section class="feature-section chatbot-section" id="chatbot"
+        style="background:linear-gradient(135deg,rgba(99,102,241,0.07) 0%,rgba(6,182,212,0.04) 100%);border-bottom:1px solid var(--glass-border)">
+        <div style="max-width:800px;margin:0 auto">
+            <div class="section-header reveal" style="margin-bottom:40px">
+                <div class="section-tag">Live Demo</div>
+                <h2>💬 Ask the AI Insurance Assistant</h2>
+                <p>Ask any question about your insurance policy — get instant, clause-backed AI answers.</p>
+            </div>
+
+            <!-- Suggested Questions -->
+            <div class="suggest-chips reveal">
+                <button class="chip" onclick="askSuggested(this)">What is covered under hospitalization?</button>
+                <button class="chip" onclick="askSuggested(this)">What is the maternity waiting period?</button>
+                <button class="chip" onclick="askSuggested(this)">What is the room rent sub-limit?</button>
+                <button class="chip" onclick="askSuggested(this)">How to file a cashless claim?</button>
+                <button class="chip" onclick="askSuggested(this)">Does the policy cover dental treatment?</button>
+            </div>
+
+            <!-- Chat Window -->
+            <div class="live-chat-window reveal">
+                <div class="live-chat-header">
+                    <div style="display:flex;align-items:center;gap:10px">
+                        <div class="chat-avatar-ai">🤖</div>
+                        <div>
+                            <div style="font-weight:700;color:#fff;font-size:0.95rem">RAG Insurance AI</div>
+                            <div style="font-size:0.75rem;color:var(--success);display:flex;align-items:center;gap:5px">
+                                <span
+                                    style="width:6px;height:6px;background:var(--success);border-radius:50%;display:inline-block"></span>
+                                Online · Powered by RAG
+                            </div>
+                        </div>
+                    </div>
+                    <button class="chat-clear-btn" onclick="clearChat()" title="Clear chat">🗑️</button>
+                </div>
+
+                <div class="live-chat-messages" id="chat-messages">
+                    <!-- Welcome message -->
+                    <div class="chat-row chat-row--ai">
+                        <div class="chat-avatar-ai">🤖</div>
+                        <div class="chat-bubble-ai">
+                            👋 Hello! I'm your RAG Insurance Assistant. Ask me anything about your insurance policy —
+                            waiting periods, coverage, claims, benefits, and more!
+                        </div>
+                    </div>
+                </div>
+
+                <form class="live-chat-form" id="chat-form">
+                    <input type="text" id="chat-input" class="live-chat-input"
+                        placeholder="Ask anything about your policy... e.g. 'What is the waiting period for surgery?'"
+                        autocomplete="off" maxlength="300" />
+                    <button type="submit" class="live-chat-send" id="chat-send-btn">
+                        <span>Send</span> ➤
+                    </button>
+                </form>
+                <div style="text-align:center;font-size:0.72rem;color:var(--text-dim);padding:8px 0 4px">
+                    🔒 All conversations are saved securely · Powered by RAG + Supabase
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- FOOTER -->
     <footer>
         <div class="footer-grid">
@@ -373,15 +438,14 @@
     </footer>
 
     <script src="script.js"></script>
-  <!-- 
+    <!-- 
     🔧 API CONFIG — Update this URL after deploying your backend to Render
     Local dev:   http://localhost:5000
     Production:  https://your-app-name.onrender.com
   -->
-  <script>
-    window.ENV_API_URL = "https://rag-insurance-assistant.onrender.com";
-  </script>
+    <script>
+        window.ENV_API_URL = "https://rag-insurance-assistant.onrender.com";
+    </script>
 </body>
 
 </html>
-

@@ -185,23 +185,75 @@ const API_URL = window.ENV_API_URL || 'http://localhost:5000';
     }
 
     // ────────────────────────────────────────────────────────────
-    // ── Chat Box — POST /ask to backend (admin.html / features) ──
+    // ── Live Chatbot — POST /ask to backend ──────────────────────
     // ────────────────────────────────────────────────────────────
     const chatForm = document.getElementById('chat-form');
     const chatInput = document.getElementById('chat-input');
     const chatMessages = document.getElementById('chat-messages');
+    const chatSendBtn = document.getElementById('chat-send-btn');
 
-    function appendMessage(role, text) {
+    function appendUserMsg(text) {
         if (!chatMessages) return;
-        const msg = document.createElement('div');
-        msg.className = `chat-message chat-message--${role}`;
-        msg.innerHTML = `
-      <div class="chat-bubble">
-        <span class="chat-role">${role === 'user' ? '🧑' : '🤖 AI'}</span>
-        <p>${text}</p>
-      </div>`;
-        chatMessages.appendChild(msg);
+        const row = document.createElement('div');
+        row.className = 'chat-row chat-row--user';
+        row.innerHTML = `
+      <div class="chat-avatar-user">🧑</div>
+      <div class="chat-bubble-user">${text}</div>`;
+        chatMessages.appendChild(row);
         chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function appendAIMsg(text) {
+        if (!chatMessages) return;
+        const row = document.createElement('div');
+        row.className = 'chat-row chat-row--ai';
+        row.innerHTML = `
+      <div class="chat-avatar-ai">🤖</div>
+      <div class="chat-bubble-ai">${text}</div>`;
+        chatMessages.appendChild(row);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+        return row;
+    }
+
+    function showTypingIndicator() {
+        if (!chatMessages) return null;
+        const row = document.createElement('div');
+        row.className = 'chat-row chat-row--ai';
+        row.id = 'typing-indicator';
+        row.innerHTML = `
+      <div class="chat-avatar-ai">🤖</div>
+      <div class="chat-bubble-ai"><div class="typing-dots"><span></span><span></span><span></span></div></div>`;
+        chatMessages.appendChild(row);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+        return row;
+    }
+
+    async function sendQuestion(question) {
+        if (!question || !chatMessages) return;
+        appendUserMsg(question);
+        const typingRow = showTypingIndicator();
+        if (chatSendBtn) chatSendBtn.disabled = true;
+
+        try {
+            const response = await fetch(`${API_URL}/ask`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ question })
+            });
+            const data = await response.json();
+            if (typingRow) typingRow.remove();
+            if (response.ok) {
+                appendAIMsg(data.answer);
+            } else {
+                appendAIMsg(`❌ Error: ${data.message || 'Could not get a response.'}`);
+            }
+        } catch (err) {
+            if (typingRow) typingRow.remove();
+            appendAIMsg('❌ Network error — the backend may be waking up (free Render plan). Please try again in 30 seconds.');
+            console.error('Chat API error:', err);
+        } finally {
+            if (chatSendBtn) chatSendBtn.disabled = false;
+        }
     }
 
     if (chatForm && chatInput) {
@@ -209,37 +261,25 @@ const API_URL = window.ENV_API_URL || 'http://localhost:5000';
             e.preventDefault();
             const question = chatInput.value.trim();
             if (!question) return;
-
-            appendMessage('user', question);
             chatInput.value = '';
-            appendMessage('assistant', '⏳ Thinking...');
-
-            try {
-                const response = await fetch(`${API_URL}/ask`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ question })
-                });
-
-                const data = await response.json();
-
-                // Remove the "Thinking..." message
-                const lastMsg = chatMessages.querySelector('.chat-message--assistant:last-child');
-                if (lastMsg) lastMsg.remove();
-
-                if (response.ok) {
-                    appendMessage('assistant', data.answer);
-                } else {
-                    appendMessage('assistant', `❌ Error: ${data.message || 'Could not get a response.'}`);
-                }
-            } catch (err) {
-                const lastMsg = chatMessages.querySelector('.chat-message--assistant:last-child');
-                if (lastMsg) lastMsg.remove();
-                appendMessage('assistant', '❌ Network error — make sure the backend is running.');
-                console.error('Chat API error:', err);
-            }
+            await sendQuestion(question);
         });
     }
+
+    // Suggested question chips
+    window.askSuggested = function (btn) {
+        const question = btn.textContent.trim();
+        if (chatInput) chatInput.value = question;
+        sendQuestion(question);
+        if (chatInput) chatInput.value = '';
+    };
+
+    // Clear chat button
+    window.clearChat = function () {
+        if (!chatMessages) return;
+        chatMessages.innerHTML = '';
+        appendAIMsg('👋 Chat cleared! Ask me anything about your insurance policy.');
+    };
 
     // ── Admin: Upload Policy → POST /upload ──────────────────────
     const uploadArea = document.getElementById('upload-area');
