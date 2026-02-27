@@ -2001,3 +2001,28 @@ footer {
     display: none
   }
 }
+
+/* ─── POLICY COMPARISON SELECTS ──────────────────────────── */
+.compare-select {
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-size: 0.82rem;
+  font-family: inherit;
+  padding: 9px 12px;
+  outline: none;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.compare-select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+.compare-select option {
+  background: var(--bg-card);
+  color: var(--text);
+}

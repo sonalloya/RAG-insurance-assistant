@@ -1,0 +1,180 @@
+{
+    "policy": {
+        "policy_id": "CP-BASIC-2024-003",
+        "policy_name": "CarePlus Basic",
+        "insurer": "CarePlus Health Insurance Pvt. Ltd.",
+        "policy_type": "Individual Health Insurance",
+        "version": "1.5",
+        "effective_date": "2024-01-01",
+        "expiry_date": "2024-12-31",
+        "premium_amount": 9500,
+        "currency": "INR",
+        "sum_insured": 300000,
+        "policyholder": {
+            "name": "Arjun Nair",
+            "dob": "1988-03-10",
+            "age": 36,
+            "gender": "Male",
+            "email": "arjun.nair@email.com",
+            "phone": "+91-9988776655",
+            "address": "7, Anna Nagar, Chennai - 600040"
+        },
+        "sections": [
+            {
+                "section_id": "S1",
+                "title": "Definitions",
+                "content": "In this policy: 'Insured' means the person specified in the schedule. 'Hospital' means any institution established for in-patient care registered with state authorities with a minimum of 10 beds. 'Pre-Existing Disease' means any condition diagnosed or treated within 48 months before first policy inception. 'Network Provider' means hospitals, clinics, and diagnostic labs in CarePlus's empanelled network."
+            },
+            {
+                "section_id": "S2",
+                "title": "Scope of Cover",
+                "content": "CarePlus Basic provides essential health coverage for in-patient hospitalization due to illness or accident. This is an affordable entry-level plan designed for individuals seeking basic coverage. Coverage is subject to plan limits, waiting periods, and policy exclusions."
+            },
+            {
+                "section_id": "S3",
+                "title": "In-Patient Hospitalization",
+                "sub_sections": [
+                    {
+                        "sub_id": "S3.1",
+                        "title": "Room Rent",
+                        "content": "Room rent is covered at ₹2,500 per day (general ward) or ₹4,000 per day (semi-private room). ICU charges covered up to ₹6,000 per day. Proportionate deduction applies if insured opts for a higher category room."
+                    },
+                    {
+                        "sub_id": "S3.2",
+                        "title": "Minimum Hospitalization",
+                        "content": "A minimum hospitalization of 24 hours is required. This plan covers 200 listed day-care procedures without minimum stay."
+                    }
+                ]
+            },
+            {
+                "section_id": "S4",
+                "title": "Hospitalization Coverage",
+                "sub_sections": [
+                    {
+                        "sub_id": "S4.1",
+                        "title": "Pre-Hospitalization",
+                        "content": "Medical expenses incurred within 15 days before admission are covered for the same illness requiring hospitalization."
+                    },
+                    {
+                        "sub_id": "S4.2",
+                        "title": "Coverage Limits",
+                        "content": "Maximum annual hospitalization benefit is ₹3,00,000. Room rent ₹2,500/day (general) or ₹4,000 (semi-private), ICU ₹6,000/day. Basic coverage includes surgeon fees, medicines, and diagnostics during hospitalization only."
+                    },
+                    {
+                        "sub_id": "S4.3",
+                        "title": "Post-Hospitalization",
+                        "content": "Post-discharge medical expenses are covered for 30 days after discharge, related to the hospitalized condition."
+                    }
+                ]
+            },
+            {
+                "section_id": "S5",
+                "title": "Waiting Periods",
+                "sub_sections": [
+                    {
+                        "sub_id": "S5.1",
+                        "title": "Initial Waiting Period",
+                        "content": "A general waiting period of 30 days applies from inception. Accidental hospitalizations are covered from Day 1."
+                    },
+                    {
+                        "sub_id": "S5.2",
+                        "title": "Specific Disease Waiting Period",
+                        "content": "A waiting period of 2 years applies for conditions including Hernia, Cataract, Hysterectomy, Joint Replacement, and chronic kidney disease."
+                    },
+                    {
+                        "sub_id": "S5.3",
+                        "title": "Pre-Existing Disease Waiting Period",
+                        "content": "Pre-existing diseases are covered after a waiting period of 4 years (1460 days) of continuous coverage. This is the standard waiting period for this basic plan tier."
+                    }
+                ]
+            },
+            {
+                "section_id": "S6",
+                "title": "Surgical Procedures",
+                "sub_sections": [
+                    {
+                        "sub_id": "S6.1",
+                        "title": "Surgical Coverage",
+                        "content": "Surgical procedures are covered after 90 days of policy inception (except accidental surgeries from Day 1). Standard surgeries are covered; however, robotic surgeries are not covered under this basic plan. Surgeon fees are subject to a sub-limit of ₹25,000 per surgery."
+                    }
+                ]
+            },
+            {
+                "section_id": "S7",
+                "title": "No Claim Bonus",
+                "content": "5% increase in Sum Insured for every claim-free year, subject to a maximum of 25% of base Sum Insured. NCB lapses entirely if a claim is made in any policy year."
+            },
+            {
+                "section_id": "S8",
+                "title": "Maternity Coverage",
+                "sub_sections": [
+                    {
+                        "sub_id": "S8.1",
+                        "title": "Maternity Benefit",
+                        "content": "Maternity coverage is NOT included in CarePlus Basic. Maternity expenses must be borne by the policyholder. Upgrade to CarePlus Premium or CarePlus Family plan to avail maternity benefits."
+                    }
+                ]
+            },
+            {
+                "section_id": "S9",
+                "title": "Dental and Vision Coverage",
+                "sub_sections": [
+                    {
+                        "sub_id": "S9.1",
+                        "title": "Dental Coverage",
+                        "content": "Dental treatment is NOT covered under this plan unless necessitated by accidental injury, which is covered under standard hospitalization benefits from Day 1."
+                    },
+                    {
+                        "sub_id": "S9.2",
+                        "title": "Vision Care",
+                        "content": "Spectacles and contact lenses are NOT covered under CarePlus Basic. Cataract surgery is covered as a day-care procedure after 2-year waiting period."
+                    }
+                ]
+            },
+            {
+                "section_id": "S10",
+                "title": "Exclusions",
+                "content": "Not covered: pre-existing diseases during waiting period, maternity and newborn expenses, cosmetic surgery, infertility treatments, substance abuse, war injuries, STDs/HIV, experimental treatments, dental and vision care (except accident), OPD consultations, psychiatric treatment, vitamins and supplements, administrative expenses, and treatments outside India."
+            },
+            {
+                "section_id": "S11",
+                "title": "Claims Process",
+                "sub_sections": [
+                    {
+                        "sub_id": "S11.1",
+                        "title": "Cashless Facility",
+                        "content": "Available at 3,200+ Network hospitals. For planned admission: 48 hours prior intimation required. For emergency: within 24 hours of admission."
+                    },
+                    {
+                        "sub_id": "S11.2",
+                        "title": "Reimbursement",
+                        "content": "Claims must be filed within 7 days of discharge. Required: discharge summary, bills, prescriptions, and investigation reports. Processing within 30 working days."
+                    }
+                ]
+            }
+        ],
+        "network_hospitals": [
+            "Government General Hospitals",
+            "Apollo Clinics",
+            "Fortis Flt. Lt. Rajan Dhall Hospital",
+            "Manipal Hospital (select centres)",
+            "Narayana Multispeciality Hospital",
+            "SRM Institutes for Medical Science",
+            "Kauvery Hospital"
+        ],
+        "contact": {
+            "helpline": "1800-CARE-PLUS",
+            "email": "claims@careplushealth.com",
+            "website": "www.careplushealth.com",
+            "grievance_officer": "grievance@careplushealth.com"
+        },
+        "metadata": {
+            "created_at": "2024-01-01T00:00:00Z",
+            "last_updated": "2024-01-01T00:00:00Z",
+            "document_type": "Insurance Policy",
+            "language": "English",
+            "total_sections": 11,
+            "rag_indexable": true
+        }
+    }
+}

@@ -1,0 +1,193 @@
+{
+    "policy": {
+        "policy_id": "MG-PLUS-2024-002",
+        "policy_name": "MedGuard Plus",
+        "insurer": "MedGuard General Insurance Ltd.",
+        "policy_type": "Individual Health Insurance",
+        "version": "3.0",
+        "effective_date": "2024-01-01",
+        "expiry_date": "2024-12-31",
+        "premium_amount": 24000,
+        "currency": "INR",
+        "sum_insured": 1000000,
+        "policyholder": {
+            "name": "Priya Mehta",
+            "dob": "1992-08-22",
+            "age": 32,
+            "gender": "Female",
+            "email": "priya.mehta@email.com",
+            "phone": "+91-9123456789",
+            "address": "15, Koramangala, Bengaluru - 560034"
+        },
+        "sections": [
+            {
+                "section_id": "S1",
+                "title": "Definitions",
+                "content": "In this policy, 'Insured' means the person named in the Schedule. 'Hospital' means any institution established for in-patient care and registered with relevant authorities and having at least 15 inpatient beds. 'Pre-Existing Disease' means any condition diagnosed or treated within 36 months prior to policy commencement. 'Network Provider' means hospitals and diagnostic centres empanelled with MedGuard."
+            },
+            {
+                "section_id": "S2",
+                "title": "Scope of Cover",
+                "content": "MedGuard Plus provides comprehensive coverage for hospitalization expenses, outpatient consultations (OPD), maternity, dental, and vision care. Coverage applies to medically necessary treatments prescribed by a registered medical practitioner."
+            },
+            {
+                "section_id": "S3",
+                "title": "In-Patient Hospitalization",
+                "sub_sections": [
+                    {
+                        "sub_id": "S3.1",
+                        "title": "Room Rent",
+                        "content": "Room rent is covered up to ₹8,000 per day for a single private AC room. ICU charges are covered up to ₹16,000 per day. There is no proportionate deduction for room rent upgrades up to one room category above the entitled room."
+                    },
+                    {
+                        "sub_id": "S3.2",
+                        "title": "Minimum Hospitalization",
+                        "content": "Hospitalization of at least 24 hours is required for claims. Day-care procedures are covered without minimum stay requirement. MedGuard Plus covers 540+ listed day-care procedures."
+                    }
+                ]
+            },
+            {
+                "section_id": "S4",
+                "title": "Hospitalization Coverage",
+                "sub_sections": [
+                    {
+                        "sub_id": "S4.1",
+                        "title": "Pre-Hospitalization",
+                        "content": "Medical expenses incurred up to 60 days before hospitalization are covered, related to the same condition requiring admission."
+                    },
+                    {
+                        "sub_id": "S4.2",
+                        "title": "Coverage Limits",
+                        "content": "Maximum annual hospitalization benefit is ₹10,00,000. Room rent ₹8,000/day, ICU ₹16,000/day. Includes surgeon fees, anaesthetist, medicines, oxygen, blood, and diagnostic charges."
+                    },
+                    {
+                        "sub_id": "S4.3",
+                        "title": "Post-Hospitalization",
+                        "content": "Post-discharge expenses are covered for 90 days after discharge, related to the treated condition."
+                    }
+                ]
+            },
+            {
+                "section_id": "S5",
+                "title": "Waiting Periods",
+                "sub_sections": [
+                    {
+                        "sub_id": "S5.1",
+                        "title": "Initial Waiting Period",
+                        "content": "A general waiting period of 30 days applies. Emergency and accidental hospitalizations are covered from Day 1."
+                    },
+                    {
+                        "sub_id": "S5.2",
+                        "title": "Specific Disease Waiting Period",
+                        "content": "A waiting period of 1 year applies for specific listed conditions including Hernia, Cataract, Joint replacement and ENT-related procedures."
+                    },
+                    {
+                        "sub_id": "S5.3",
+                        "title": "Pre-Existing Disease Waiting Period",
+                        "content": "Pre-existing diseases are covered after a waiting period of 2 years (730 days) of continuous policy coverage. This is a reduced waiting period compared to market standard."
+                    }
+                ]
+            },
+            {
+                "section_id": "S6",
+                "title": "Surgical Procedures",
+                "sub_sections": [
+                    {
+                        "sub_id": "S6.1",
+                        "title": "Surgical Coverage",
+                        "content": "Surgical procedures are covered after 60 days from policy inception, except accidental surgeries covered from Day 1. MedGuard Plus covers all major and minor surgeries, including robotic and laparoscopic procedures at full cost without sub-limits."
+                    }
+                ]
+            },
+            {
+                "section_id": "S7",
+                "title": "No Claim Bonus",
+                "content": "For every claim-free year, the Sum Insured increases by 15% (up to maximum 100% of base Sum Insured). NCB reduces by 15% per claim year but does not go below the base Sum Insured."
+            },
+            {
+                "section_id": "S8",
+                "title": "Maternity and Newborn Coverage",
+                "sub_sections": [
+                    {
+                        "sub_id": "S8.1",
+                        "title": "Maternity Benefit",
+                        "content": "Maternity expenses are covered after a waiting period of 12 months. Normal delivery up to ₹60,000 and C-section up to ₹80,000. Pre- and post-natal expenses up to ₹15,000 included."
+                    },
+                    {
+                        "sub_id": "S8.2",
+                        "title": "Newborn Cover",
+                        "content": "Newborn is automatically covered for 180 days under mother's policy. Newborn vaccinations up to ₹5,000 are covered as part of this benefit."
+                    }
+                ]
+            },
+            {
+                "section_id": "S9",
+                "title": "Dental and Vision Coverage",
+                "sub_sections": [
+                    {
+                        "sub_id": "S9.1",
+                        "title": "Dental Coverage",
+                        "content": "Dental treatments including routine fillings, extractions, root canal, and dental surgery are covered after 90 days. Annual dental limit ₹25,000. Accidental dental injuries covered from Day 1."
+                    },
+                    {
+                        "sub_id": "S9.2",
+                        "title": "Vision Care",
+                        "content": "Spectacles, lenses, LASIK eye surgery, and retinal treatments covered after 60 days. Annual vision limit ₹10,000. Diabetic retinopathy treatment covered under hospitalization benefits."
+                    }
+                ]
+            },
+            {
+                "section_id": "S10",
+                "title": "OPD Coverage",
+                "content": "Out-patient department (OPD) consultations, diagnostic tests, and prescribed medicines are covered up to ₹20,000 per policy year. This benefit requires no hospitalization and covers visits to empanelled OPD providers."
+            },
+            {
+                "section_id": "S11",
+                "title": "Exclusions",
+                "content": "Not covered: cosmetic surgery (except post-accident reconstructive), infertility/IVF treatments, substance abuse treatment, war-related injuries, STDs/HIV (except medically acquired HIV), experimental treatments, non-medical expenses, and treatments outside India without pre-authorization."
+            },
+            {
+                "section_id": "S12",
+                "title": "Cashless and Reimbursement Claims",
+                "sub_sections": [
+                    {
+                        "sub_id": "S12.1",
+                        "title": "Cashless Facility",
+                        "content": "Available at 8,500+ Network hospitals. For planned admission: 72 hours prior intimation. For emergency: within 24 hours. Digital health card accepted. Real-time claim tracking available on MedGuard app."
+                    },
+                    {
+                        "sub_id": "S12.2",
+                        "title": "Reimbursement",
+                        "content": "Claims must be submitted within 30 days of discharge. Documents: discharge summary, bills, prescriptions, investigation reports. Settlement within 15 working days of complete documentation."
+                    }
+                ]
+            }
+        ],
+        "network_hospitals": [
+            "Apollo Hospitals",
+            "Fortis Healthcare",
+            "Manipal Hospitals",
+            "Narayana Health",
+            "Columbia Asia",
+            "Lilavati Hospital",
+            "Breach Candy Hospital",
+            "Wockhardt Hospitals",
+            "Global Hospitals",
+            "Aster DM Healthcare"
+        ],
+        "contact": {
+            "helpline": "1800-MED-PLUS",
+            "email": "claims@medguardinsurance.com",
+            "website": "www.medguardinsurance.com",
+            "grievance_officer": "grievance@medguardinsurance.com"
+        },
+        "metadata": {
+            "created_at": "2024-01-01T00:00:00Z",
+            "last_updated": "2024-01-01T00:00:00Z",
+            "document_type": "Insurance Policy",
+            "language": "English",
+            "total_sections": 12,
+            "rag_indexable": true
+        }
+    }
+}

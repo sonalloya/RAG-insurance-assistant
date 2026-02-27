@@ -281,6 +281,120 @@ const API_URL = window.ENV_API_URL || 'http://localhost:5000';
         appendAIMsg('👋 Chat cleared! Ask me anything about your insurance policy.');
     };
 
+    // ── Policy Comparison Widget (features.html) ─────────────────
+    const selectA = document.getElementById('policy-select-a');
+    const selectB = document.getElementById('policy-select-b');
+    const compareBtn = document.getElementById('compare-btn');
+    const compareResult = document.getElementById('compare-result');
+
+    // Load policies into dropdowns
+    async function loadPoliciesForCompare() {
+        if (!selectA || !selectB) return;
+        try {
+            const res = await fetch(`${API_URL}/policies`);
+            const data = await res.json();
+            const policies = (data.policies || []).filter(p => p.policy_data);
+
+            const makeOptions = (excludeId) => {
+                if (policies.length === 0) {
+                    return '<option value="">No comparison-ready policies found — upload JSON policies first</option>';
+                }
+                return '<option value="">Select a policy…</option>' +
+                    policies.map(p =>
+                        `<option value="${p.id}" ${p.id === excludeId ? 'disabled' : ''}>${p.name}</option>`
+                    ).join('');
+            };
+
+            selectA.innerHTML = makeOptions(null);
+            selectB.innerHTML = makeOptions(null);
+
+            // Keep the other select's selected item disabled once one is chosen
+            selectA.addEventListener('change', () => {
+                Array.from(selectB.options).forEach(o => {
+                    o.disabled = o.value === selectA.value && o.value !== '';
+                });
+            });
+            selectB.addEventListener('change', () => {
+                Array.from(selectA.options).forEach(o => {
+                    o.disabled = o.value === selectB.value && o.value !== '';
+                });
+            });
+        } catch (e) {
+            if (selectA) selectA.innerHTML = '<option value="">⚠️ Backend offline — check Render</option>';
+            if (selectB) selectB.innerHTML = '<option value="">⚠️ Backend offline — check Render</option>';
+        }
+    }
+    loadPoliciesForCompare();
+
+    // Compare button click
+    if (compareBtn) {
+        compareBtn.addEventListener('click', async () => {
+            const id1 = selectA?.value;
+            const id2 = selectB?.value;
+            if (!id1 || !id2) {
+                compareResult.innerHTML = '<div style="text-align:center;padding:16px;color:#f59e0b">⚠️ Please select two different policies to compare.</div>';
+                return;
+            }
+            compareResult.innerHTML = '<div style="text-align:center;padding:20px;color:var(--text-dim)">⏳ Comparing policies...</div>';
+            compareBtn.disabled = true;
+
+            try {
+                const res = await fetch(`${API_URL}/compare?policy1=${id1}&policy2=${id2}`);
+                const data = await res.json();
+
+                if (!res.ok) {
+                    compareResult.innerHTML = `<div style="text-align:center;padding:16px;color:var(--danger)">❌ ${data.message}</div>`;
+                    return;
+                }
+
+                const a = data.comparison.policy_a;
+                const b = data.comparison.policy_b;
+
+                // Fields to compare
+                const rows = [
+                    ['Sum Insured', `₹${Number(a.data.sum_insured).toLocaleString('en-IN')}`, `₹${Number(b.data.sum_insured).toLocaleString('en-IN')}`],
+                    ['Annual Premium', `₹${Number(a.data.premium_amount).toLocaleString('en-IN')}`, `₹${Number(b.data.premium_amount).toLocaleString('en-IN')}`],
+                    ['Insurer', a.data.insurer, b.data.insurer],
+                    ['Network Hospitals', `${a.data.network_hospitals}+ hospitals`, `${b.data.network_hospitals}+ hospitals`],
+                    ['Initial Waiting Period', a.data.initial_waiting?.split('.')[0] || '30 days', b.data.initial_waiting?.split('.')[0] || '30 days'],
+                    ['Pre-Existing Disease Wait', a.data.pre_existing_waiting?.split('.')[0] || 'N/A', b.data.pre_existing_waiting?.split('.')[0] || 'N/A'],
+                    ['Surgery Waiting Period', a.data.surgery_waiting?.split('.')[0] || 'N/A', b.data.surgery_waiting?.split('.')[0] || 'N/A'],
+                    ['Maternity Coverage', a.data.maternity_waiting?.split('.')[0] || 'Not covered', b.data.maternity_waiting?.split('.')[0] || 'Not covered'],
+                    ['No Claim Bonus', a.data.no_claim_bonus?.split('.')[0] || 'N/A', b.data.no_claim_bonus?.split('.')[0] || 'N/A'],
+                    ['Dental Coverage', a.data.dental?.split('.')[0] || 'Not covered', b.data.dental?.split('.')[0] || 'Not covered'],
+                    ['Vision Coverage', a.data.vision?.split('.')[0] || 'Not covered', b.data.vision?.split('.')[0] || 'Not covered'],
+                    ['OPD Coverage', a.data.opd?.split('.')[0] || 'Not covered', b.data.opd?.split('.')[0] || 'Not covered'],
+                ];
+
+                compareResult.innerHTML = `
+          <table class="comparison-table" style="font-size:0.78rem">
+            <thead>
+              <tr>
+                <th>Feature / Benefit</th>
+                <th>🅰 ${a.name}</th>
+                <th>🅱 ${b.name}</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${rows.map(([label, aVal, bVal]) => `
+                <tr>
+                  <td><strong>${label}</strong></td>
+                  <td>${aVal}</td>
+                  <td>${bVal}</td>
+                </tr>`).join('')}
+            </tbody>
+          </table>
+          <div style="font-size:0.72rem;color:var(--text-dim);text-align:center;margin-top:8px;padding:4px 0">
+            ⚖️ Live comparison from Supabase · ${new Date().toLocaleTimeString()}
+          </div>`;
+            } catch (err) {
+                compareResult.innerHTML = '<div style="text-align:center;padding:16px;color:var(--danger)">❌ Network error — backend may be waking up. Try again in 30 seconds.</div>';
+            } finally {
+                compareBtn.disabled = false;
+            }
+        });
+    }
+
     // ── Admin: Upload Policy → POST /upload ──────────────────────
     const uploadArea = document.getElementById('upload-area');
     const fileInput = document.getElementById('file-input');

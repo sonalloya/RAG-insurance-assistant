@@ -50,7 +50,7 @@
                 <div class="feature-tag">Transparency Explainable AI</div>
                 <h2>Policy Clause Citation</h2>
                 <p>Every AI-generated response includes exact references to the policy sections it draws from. Instead
-                    of vague answers, users get precise clause citations like <em>"Covered under Section 4.2 
+                    of vague answers, users get precise clause citations like <em>"Covered under Section 4.2
                         Hospitalization Coverage."</em></p>
                 <p>This is made possible by the RAG pipeline â€” retrieved document chunks are mapped back to their
                     source
@@ -191,63 +191,42 @@
                         <span class="dot dot-red"></span>
                         <span class="dot dot-yellow"></span>
                         <span class="dot dot-green"></span>
-                        <span class="mock-ui-title">Policy Comparison Tool</span>
+                        <span class="mock-ui-title">⚖️ Policy Comparison Tool — Live</span>
                     </div>
-                    <div class="mock-ui-body" style="padding:0">
-                        <table class="comparison-table">
-                            <thead>
-                                <tr>
-                                    <th>Feature / Benefit</th>
-                                    <th>ðŸ…° Policy A<br><small
-                                            style="color:var(--text-dim);font-weight:400">HealthShield
-                                            Pro</small></th>
-                                    <th>Policy B<br><small style="color:var(--text-dim);font-weight:400">MedGuard
-                                            Plus</small></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Maternity Waiting Period</td>
-                                    <td>2 Years</td>
-                                    <td>1 Year</td>
-                                </tr>
-                                <tr>
-                                    <td>Surgery Coverage</td>
-                                    <td class="check-yes">Covered</td>
-                                    <td class="check-yes">Covered</td>
-                                </tr>
-                                <tr>
-                                    <td>Pre-Existing Conditions</td>
-                                    <td>3 Year Wait</td>
-                                    <td>2 Year Wait </td>
-                                </tr>
-                                <tr>
-                                    <td>Room Rent Sub-Limit</td>
-                                    <td>3,000/day</td>
-                                    <td>5,000/day</td>
-                                </tr>
-                                <tr>
-                                    <td>Dental Coverage</td>
-                                    <td class="check-no">Not Covered</td>
-                                    <td class="check-yes">Covered</td>
-                                </tr>
-                                <tr>
-                                    <td>COVID-19 Coverage</td>
-                                    <td class="check-yes">Included</td>
-                                    <td class="check-yes">Included</td>
-                                </tr>
-                                <tr>
-                                    <td>Annual Sum Insured</td>
-                                    <td>3 Lakhs</td>
-                                    <td>5 Lakhs</td>
-                                </tr>
-                                <tr>
-                                    <td>No Claim Bonus</td>
-                                    <td>10% per year</td>
-                                    <td>15% per year</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="mock-ui-body" id="compare-widget" style="padding:18px">
+
+                        <!-- Policy selectors -->
+                        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px">
+                            <div>
+                                <label
+                                    style="font-size:0.72rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;display:block;margin-bottom:6px">🅰
+                                    Policy A</label>
+                                <select id="policy-select-a" class="compare-select">
+                                    <option value="">Loading policies…</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label
+                                    style="font-size:0.72rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;display:block;margin-bottom:6px">🅱
+                                    Policy B</label>
+                                <select id="policy-select-b" class="compare-select">
+                                    <option value="">Loading policies…</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button id="compare-btn" class="btn btn-primary btn-sm"
+                            style="width:100%;justify-content:center;margin-bottom:16px">
+                            ⚖️ Compare Policies
+                        </button>
+
+                        <!-- Results area -->
+                        <div id="compare-result">
+                            <div style="text-align:center;padding:24px;color:var(--text-dim);font-size:0.85rem">
+                                📂 Upload policies in the Admin Dashboard, then select two to compare.
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>

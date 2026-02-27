@@ -5,7 +5,7 @@
 const express = require('express');
 const router = express.Router();
 const multer = require('multer');
-const { uploadPolicy, getPolicies } = require('../controllers/policyController');
+const { uploadPolicy, getPolicies, comparePolicies } = require('../controllers/policyController');
 
 // Configure multer for in-memory storage
 // (files are processed and metadata saved; actual files go to Supabase Storage later)
@@ -29,5 +29,8 @@ router.post('/upload', upload.single('file'), uploadPolicy);
 
 // GET /policies — list all indexed policies
 router.get('/policies', getPolicies);
+
+// GET /compare?policy1=<id>&policy2=<id> — compare two policies
+router.get('/compare', comparePolicies);
 
 module.exports = router;

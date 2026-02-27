@@ -12,8 +12,13 @@ CREATE TABLE IF NOT EXISTS policies (
   id          UUID        PRIMARY KEY DEFAULT uuid_generate_v4(),
   name        TEXT        NOT NULL,
   file_url    TEXT        NOT NULL DEFAULT '',
+  policy_data JSONB,
   created_at  TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
+
+-- If the table already exists, add the column (safe to run):
+ALTER TABLE policies ADD COLUMN IF NOT EXISTS policy_data JSONB;
+
 
 -- ─── Table: chats ────────────────────────────────────────────
 -- Stores every question asked and the AI answer returned
