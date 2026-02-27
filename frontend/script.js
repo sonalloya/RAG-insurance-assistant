@@ -550,4 +550,333 @@ const API_URL = window.ENV_API_URL || 'http://localhost:5000';
         animateParticles();
     }
 
+    // ══════════════════════════════════════════════════════════
+    // ── POLICY VERSION CHANGE TRACKER ─────────────────────────
+    // ══════════════════════════════════════════════════════════
+
+    // ── Mock Policy Data (4 versions with realistic clause differences) ──
+    const POLICY_VERSIONS = {
+
+        v1: {
+            label: 'Version 1.0 — 2022 (Initial Release)',
+            date: '2022-01-01',
+            clauses: [
+                { clause: '1.1', title: 'Policy Coverage Scope', text: 'This policy covers hospitalization expenses due to illness or accidental injury for the insured person.' },
+                { clause: '2.1', title: 'Sum Insured', text: 'The maximum sum insured under this policy is ₹3,00,000 per policy year.' },
+                { clause: '3.1', title: 'Room Rent Limit', text: 'Room rent is limited to ₹2,000 per day for a standard AC room. ICU charges limited to ₹4,000 per day.' },
+                { clause: '4.1', title: 'Initial Waiting Period', text: 'A waiting period of 90 days applies from the policy inception date for all illnesses except accidents.' },
+                { clause: '5.1', title: 'Pre-Existing Diseases', text: '4-year waiting period applies for all pre-existing conditions from policy inception date.' },
+                { clause: '5.2', title: 'Specific Illness Wait', text: '2-year waiting period for specific illnesses including cataract, hernia, and joint replacement.' },
+                { clause: '6.1', title: 'Maternity Benefit', text: 'Maternity coverage is not included in this policy version.' },
+                { clause: '7.1', title: 'Dental Coverage', text: 'Dental coverage is limited to accidental injury only. Routine dental is excluded.' },
+                { clause: '8.1', title: 'No Claim Bonus', text: 'A 5% bonus on sum insured is granted for each claim-free year, up to a maximum of 25%.' },
+                { clause: '9.1', title: 'Pre-Hospitalization', text: 'Medical expenses incurred 15 days prior to hospitalization will be covered.' },
+                { clause: '9.2', title: 'Post-Hospitalization', text: 'Medical expenses incurred 30 days after discharge will be covered.' },
+                { clause: '10.1', title: 'Network Hospitals', text: 'Cashless facility available at 2,500+ empanelled network hospitals across India.' },
+            ]
+        },
+
+        v2: {
+            label: 'Version 2.0 — 2023 (Annual Update)',
+            date: '2023-01-01',
+            clauses: [
+                { clause: '1.1', title: 'Policy Coverage Scope', text: 'This policy covers hospitalization expenses due to illness or accidental injury for the insured person and eligible family members.' },
+                { clause: '2.1', title: 'Sum Insured', text: 'The maximum sum insured under this policy is ₹5,00,000 per policy year, increased from ₹3,00,000.' },
+                { clause: '3.1', title: 'Room Rent Limit', text: 'Room rent is limited to ₹3,500 per day for a single private AC room. ICU charges limited to ₹7,000 per day.' },
+                { clause: '4.1', title: 'Initial Waiting Period', text: 'A waiting period of 30 days applies from the policy inception date for all illnesses except accidents.' },
+                { clause: '5.1', title: 'Pre-Existing Diseases', text: '3-year waiting period applies for all pre-existing conditions from policy inception date.' },
+                { clause: '5.2', title: 'Specific Illness Wait', text: '2-year waiting period for specific illnesses including cataract, hernia, and joint replacement.' },
+                { clause: '6.1', title: 'Maternity Benefit', text: 'Maternity coverage included after 24 months. Normal delivery up to ₹30,000 and C-section up to ₹50,000.' },
+                { clause: '7.1', title: 'Dental Coverage', text: 'Dental coverage is limited to accidental injury only. Routine dental is excluded.' },
+                { clause: '8.1', title: 'No Claim Bonus', text: 'A 10% bonus on sum insured is granted for each claim-free year, up to a maximum of 50%.' },
+                { clause: '9.1', title: 'Pre-Hospitalization', text: 'Medical expenses incurred 30 days prior to hospitalization will be covered.' },
+                { clause: '9.2', title: 'Post-Hospitalization', text: 'Medical expenses incurred 60 days after discharge will be covered.' },
+                { clause: '10.1', title: 'Network Hospitals', text: 'Cashless facility available at 5,000+ empanelled network hospitals across India.' },
+                { clause: '11.1', title: 'Ayurveda/AYUSH Coverage', text: 'AYUSH treatments (Ayurveda, Yoga, Naturopathy, Unani, Siddha, Homeopathy) are covered up to ₹10,000 per year.' },
+            ]
+        },
+
+        v3: {
+            label: 'Version 3.0 — 2024 (Major Revision)',
+            date: '2024-01-01',
+            clauses: [
+                { clause: '1.1', title: 'Policy Coverage Scope', text: 'This policy covers hospitalization, OPD, daycare and telemedicine expenses due to illness or accidental injury for the insured person and eligible family members.' },
+                { clause: '2.1', title: 'Sum Insured', text: 'The maximum sum insured under this policy is ₹10,00,000 per policy year.' },
+                { clause: '3.1', title: 'Room Rent Limit', text: 'Room rent is covered up to ₹5,000 per day for a single private AC room. ICU charges up to ₹10,000 per day. No proportionate deduction for one category upgrade.' },
+                { clause: '4.1', title: 'Initial Waiting Period', text: 'A waiting period of 30 days applies from the policy inception date for all illnesses except accidents.' },
+                { clause: '5.1', title: 'Pre-Existing Diseases', text: '2-year waiting period applies for all pre-existing conditions, reduced from 3 years.' },
+                { clause: '5.2', title: 'Specific Illness Wait', text: '1-year waiting period for specific illnesses including cataract, hernia, and joint replacement.' },
+                { clause: '6.1', title: 'Maternity Benefit', text: 'Maternity coverage included after 12 months. Normal delivery up to ₹50,000 and C-section up to ₹70,000. Newborn covered from birth.' },
+                { clause: '6.5', title: 'Mental Health Coverage', text: 'Mental health consultations and hospitalizations are covered under this policy as per IRDAI guidelines 2024.' },
+                { clause: '7.1', title: 'Dental Coverage', text: 'Dental coverage extended to include routine treatments up to ₹15,000 per year after 180-day waiting period.' },
+                { clause: '8.1', title: 'No Claim Bonus', text: 'A 15% bonus on sum insured is granted for each claim-free year, up to a maximum of 100%.' },
+                { clause: '9.1', title: 'Pre-Hospitalization', text: 'Medical expenses incurred 60 days prior to hospitalization will be covered.' },
+                { clause: '9.2', title: 'Post-Hospitalization', text: 'Medical expenses incurred 90 days after discharge will be covered.' },
+                { clause: '10.1', title: 'Network Hospitals', text: 'Cashless facility available at 8,000+ empanelled network hospitals across India.' },
+                { clause: '11.1', title: 'Ayurveda/AYUSH Coverage', text: 'AYUSH treatments are covered up to ₹25,000 per year.' },
+                { clause: '12.1', title: 'Telemedicine / OPD', text: 'Outpatient consultations and telemedicine visits covered up to ₹10,000 per year.' },
+            ]
+        },
+
+        v4: {
+            label: 'Version 4.0 — 2025 (Latest)',
+            date: '2025-01-01',
+            clauses: [
+                { clause: '1.1', title: 'Policy Coverage Scope', text: 'This policy covers hospitalization, OPD, daycare, telemedicine and international emergency expenses due to illness or accidental injury for the insured person and eligible family members.' },
+                { clause: '2.1', title: 'Sum Insured', text: 'The maximum sum insured under this policy is ₹20,00,000 per policy year with restore benefit.' },
+                { clause: '3.1', title: 'Room Rent Limit', text: 'No room rent sub-limits. Any single private room category is fully covered.' },
+                { clause: '4.1', title: 'Initial Waiting Period', text: 'A waiting period of 15 days applies from the policy inception date for all illnesses except accidents.' },
+                { clause: '5.1', title: 'Pre-Existing Diseases', text: '1-year waiting period applies for all pre-existing conditions, further reduced to 12 months.' },
+                { clause: '5.2', title: 'Specific Illness Wait', text: '1-year waiting period for specific illnesses. Day-care procedures have no waiting period after initial 15 days.' },
+                { clause: '6.1', title: 'Maternity Benefit', text: 'Maternity coverage included from Day 1 for renewals. Normal delivery up to ₹80,000 and C-section up to ₹1,00,000. IVF treatment partially covered up to ₹30,000.' },
+                { clause: '6.5', title: 'Mental Health Coverage', text: 'Mental health consultations and hospitalizations covered with dedicated limit of ₹50,000 per year for therapy sessions.' },
+                { clause: '7.1', title: 'Dental Coverage', text: 'Dental coverage extended — routine, surgical and cosmetic dental included up to ₹30,000 per year from 90-day waiting period.' },
+                { clause: '7.2', title: 'Vision Care', text: 'LASIK surgery and premium lens implants covered up to ₹20,000. Spectacles and contact lenses ₹5,000 per year.' },
+                { clause: '8.1', title: 'No Claim Bonus', text: 'A 20% bonus on sum insured is granted for each claim-free year, up to a maximum of 100%.' },
+                { clause: '9.1', title: 'Pre-Hospitalization', text: 'Medical expenses incurred 90 days prior to hospitalization will be covered.' },
+                { clause: '9.2', title: 'Post-Hospitalization', text: 'Medical expenses incurred 180 days after discharge will be covered.' },
+                { clause: '10.1', title: 'Network Hospitals', text: 'Cashless facility available at 12,000+ empanelled network hospitals across India and select international partner hospitals.' },
+                { clause: '11.1', title: 'Ayurveda/AYUSH Coverage', text: 'AYUSH treatments are covered up to ₹50,000 per year.' },
+                { clause: '12.1', title: 'Telemedicine / OPD', text: 'Unlimited telemedicine consultations. OPD up to ₹25,000 per year including diagnostics.' },
+                { clause: '13.1', title: 'International Emergency', text: 'Emergency medical expenses abroad covered up to ₹5,00,000 per trip. Travel insurance-grade benefits included.' },
+            ]
+        }
+    };
+
+    // Version metadata displayed in cards
+    const VERSION_META = {
+        v1: '📅 2022 · ₹3L Sum Insured · Basic Cover',
+        v2: '📅 2023 · ₹5L Sum Insured · Family Added',
+        v3: '📅 2024 · ₹10L Sum Insured · Major Upgrade',
+        v4: '📅 2025 · ₹20L Sum Insured · Latest',
+    };
+
+    // Compare two policy versions and classify each clause
+    function comparePolicyVersions(oldKey, newKey) {
+        const oldClauses = POLICY_VERSIONS[oldKey]?.clauses || [];
+        const newClauses = POLICY_VERSIONS[newKey]?.clauses || [];
+
+        const oldMap = {};
+        oldClauses.forEach(c => { oldMap[c.clause] = c; });
+        const newMap = {};
+        newClauses.forEach(c => { newMap[c.clause] = c; });
+
+        const added = [], removed = [], modified = [];
+
+        // Detect added and modified
+        newClauses.forEach(c => {
+            if (!oldMap[c.clause]) {
+                added.push(c);
+            } else if (oldMap[c.clause].text !== c.text) {
+                modified.push({ clause: c.clause, title: c.title, old: oldMap[c.clause].text, new: c.text });
+            }
+        });
+
+        // Detect removed
+        oldClauses.forEach(c => {
+            if (!newMap[c.clause]) {
+                removed.push(c);
+            }
+        });
+
+        return { added, removed, modified };
+    }
+
+    // Animate a number counter
+    function animateNum(el, target) {
+        let start = 0;
+        const step = Math.ceil(target / 20);
+        const interval = setInterval(() => {
+            start = Math.min(start + step, target);
+            el.textContent = start;
+            if (start >= target) clearInterval(interval);
+        }, 40);
+    }
+
+    // Render a change item card
+    function renderChangeItem(type, clause, title, text, oldText, newText) {
+        const div = document.createElement('div');
+        div.className = `change-item change-item--${type}`;
+        div.style.animationDelay = `${Math.random() * 0.2}s`;
+        let bodyHtml = `
+          <div class="change-item-clause">Clause ${clause}</div>
+          <div class="change-item-title">${title}</div>`;
+        if (type === 'modified') {
+            bodyHtml += `<div class="change-item-old-new">
+              <div class="diff-old">❌ Old: ${oldText}</div>
+              <div class="diff-new">✅ New: ${newText}</div>
+            </div>`;
+        } else {
+            bodyHtml += `<div class="change-item-text">${text}</div>`;
+        }
+        div.innerHTML = `
+          <div class="change-item-dot dot-${type}"></div>
+          <div class="change-item-body">${bodyHtml}</div>`;
+        return div;
+    }
+
+    // Build a diff card for the visual diff view
+    function renderDiffCard(mod) {
+        const div = document.createElement('div');
+        div.className = 'diff-card';
+        div.innerHTML = `
+          <div class="diff-card-header">
+            <div>
+              <div class="diff-card-clause">Clause ${mod.clause}</div>
+              <div class="diff-card-title">${mod.title}</div>
+            </div>
+            <span class="diff-modified-tag">✏️ Modified</span>
+          </div>
+          <div class="diff-columns">
+            <div class="diff-col diff-col--old">
+              <div class="diff-col-label">🔴 Old Version</div>
+              <div class="diff-col-text">${highlightDiff(mod.old, mod.new, 'old')}</div>
+            </div>
+            <div class="diff-col diff-col--new">
+              <div class="diff-col-label">🟢 New Version</div>
+              <div class="diff-col-text">${highlightDiff(mod.old, mod.new, 'new')}</div>
+            </div>
+          </div>`;
+        return div;
+    }
+
+    // Simple word-level diff highlighting
+    function highlightDiff(oldText, newText, side) {
+        const oldWords = oldText.split(' ');
+        const newWords = newText.split(' ');
+        const oldSet = new Set(oldWords);
+        const newSet = new Set(newWords);
+
+        if (side === 'old') {
+            return oldWords.map(w =>
+                !newSet.has(w)
+                    ? `<span class="diff-highlight-red">${w}</span>`
+                    : w
+            ).join(' ');
+        } else {
+            return newWords.map(w =>
+                !oldSet.has(w)
+                    ? `<span class="diff-highlight-green">${w}</span>`
+                    : w
+            ).join(' ');
+        }
+    }
+
+    // Main tracker compare logic
+    const compareVersionsBtn = document.getElementById('compare-versions-btn');
+    const oldVersionSel = document.getElementById('old-version');
+    const newVersionSel = document.getElementById('new-version');
+    const oldMeta = document.getElementById('old-meta');
+    const newMeta = document.getElementById('new-meta');
+    const trackerResults = document.getElementById('tracker-results');
+    const trackerEmpty = document.getElementById('tracker-empty');
+
+    // Show meta on dropdown change
+    if (oldVersionSel) {
+        oldVersionSel.addEventListener('change', () => {
+            if (oldMeta) oldMeta.textContent = VERSION_META[oldVersionSel.value] || '';
+        });
+    }
+    if (newVersionSel) {
+        newVersionSel.addEventListener('change', () => {
+            if (newMeta) newMeta.textContent = VERSION_META[newVersionSel.value] || '';
+        });
+    }
+
+    if (compareVersionsBtn) {
+        compareVersionsBtn.addEventListener('click', () => {
+            const oldKey = oldVersionSel?.value;
+            const newKey = newVersionSel?.value;
+
+            if (!oldKey || !newKey) {
+                showToast && showToast('Please select both policy versions.', 'error');
+                return;
+            }
+            if (oldKey === newKey) {
+                showToast && showToast('Please select two different policy versions.', 'error');
+                return;
+            }
+
+            const { added, removed, modified } = comparePolicyVersions(oldKey, newKey);
+            const total = added.length + removed.length + modified.length;
+
+            // Show results, hide empty state
+            if (trackerEmpty) trackerEmpty.style.display = 'none';
+            if (trackerResults) {
+                trackerResults.style.display = 'block';
+                trackerResults.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+
+            // Animate analytics counters
+            ['stat-total', 'stat-added', 'stat-removed', 'stat-modified'].forEach((id, i) => {
+                const el = document.getElementById(id);
+                if (el) animateNum(el, [total, added.length, removed.length, modified.length][i]);
+            });
+
+            // Update badges
+            document.getElementById('badge-added').textContent = added.length;
+            document.getElementById('badge-removed').textContent = removed.length;
+            document.getElementById('badge-modified').textContent = modified.length;
+
+            // Render added list
+            const addedList = document.getElementById('added-list');
+            addedList.innerHTML = '';
+            if (added.length === 0) {
+                addedList.innerHTML = '<div style="color:var(--text-dim);font-size:0.85rem;padding:8px 0">No new clauses added.</div>';
+            } else {
+                added.forEach((c, i) => {
+                    const item = renderChangeItem('added', c.clause, c.title, c.text);
+                    item.style.animationDelay = `${i * 0.06}s`;
+                    addedList.appendChild(item);
+                });
+            }
+
+            // Render removed list
+            const removedList = document.getElementById('removed-list');
+            removedList.innerHTML = '';
+            if (removed.length === 0) {
+                removedList.innerHTML = '<div style="color:var(--text-dim);font-size:0.85rem;padding:8px 0">No clauses removed.</div>';
+            } else {
+                removed.forEach((c, i) => {
+                    const item = renderChangeItem('removed', c.clause, c.title, c.text);
+                    item.style.animationDelay = `${i * 0.06}s`;
+                    removedList.appendChild(item);
+                });
+            }
+
+            // Render modified list
+            const modifiedList = document.getElementById('modified-list');
+            modifiedList.innerHTML = '';
+            if (modified.length === 0) {
+                modifiedList.innerHTML = '<div style="color:var(--text-dim);font-size:0.85rem;padding:8px 0">No clauses modified.</div>';
+            } else {
+                modified.forEach((m, i) => {
+                    const item = renderChangeItem('modified', m.clause, m.title, null, m.old, m.new);
+                    item.style.animationDelay = `${i * 0.06}s`;
+                    modifiedList.appendChild(item);
+                });
+            }
+
+            // Render diff view
+            const diffContainer = document.getElementById('diff-view-container');
+            diffContainer.innerHTML = '';
+            if (modified.length === 0) {
+                diffContainer.innerHTML = '<div style="color:var(--text-dim);font-size:0.85rem;padding:16px;text-align:center">No modified clauses to show in diff view.</div>';
+            } else {
+                modified.forEach((m, i) => {
+                    const card = renderDiffCard(m);
+                    card.style.animationDelay = `${i * 0.08}s`;
+                    diffContainer.appendChild(card);
+                });
+            }
+
+            // Re-trigger scroll reveal for results
+            document.querySelectorAll('#tracker-results .reveal').forEach(el => {
+                el.classList.add('visible');
+            });
+
+            showToast && showToast(`Found ${total} change(s) between the two versions.`, 'success');
+        });
+    }
+
 })();

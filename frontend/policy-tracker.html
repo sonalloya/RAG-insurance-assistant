@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Policy Version Change Tracker – RAG Insurance Assistant</title>
+    <meta name="description"
+        content="Compare insurance policy versions and identify clause-level changes — added, removed, and modified clauses — instantly." />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-logo">
+            <div class="logo-icon">🛡️</div>
+            <span>RAG<span>Insurance</span></span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="features.html">Features</a>
+            <a href="policy-tracker.html" class="active">Policy Tracker</a>
+            <a href="admin.html">Admin Dashboard</a>
+            <a href="admin.html" class="nav-cta">Try Dashboard →</a>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="index.html">🏠 Home</a>
+        <a href="features.html">⚡ Features</a>
+        <a href="policy-tracker.html" class="active">📋 Policy Tracker</a>
+        <a href="admin.html">📊 Admin Dashboard</a>
+    </div>
+
+    <!-- HERO / HEADER -->
+    <div class="page-header tracker-hero">
+        <div class="tracker-hero-badge">
+            <span class="pulse-dot"></span>Enterprise Tool
+        </div>
+        <h1>Policy Version Change Tracker</h1>
+        <p>Compare insurance policy versions and identify clause-level changes instantly. Track <strong>added</strong>,
+            <strong>removed</strong>, and <strong>modified</strong> clauses between any two versions.</p>
+        <div class="tracker-hero-chips">
+            <span class="hero-chip chip-green">✦ Added Clauses</span>
+            <span class="hero-chip chip-red">✦ Removed Clauses</span>
+            <span class="hero-chip chip-yellow">✦ Modified Clauses</span>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main style="max-width:1200px;margin:0 auto;padding:60px 5% 100px">
+
+        <!-- STEP 1: VERSION SELECTION -->
+        <div class="tracker-section reveal">
+            <div class="tracker-section-label">Step 1</div>
+            <h2 class="tracker-section-title">Select Policy Versions to Compare</h2>
+            <p class="tracker-section-sub">Choose an older version and a newer version of the HealthShield Pro Insurance
+                Policy.</p>
+
+            <div class="version-selector-grid">
+                <!-- Old Version -->
+                <div class="version-card version-card--old">
+                    <div class="version-card-header">
+                        <div class="version-card-icon">📄</div>
+                        <div>
+                            <div class="version-card-label">Base Version</div>
+                            <div class="version-card-name">Old Policy</div>
+                        </div>
+                    </div>
+                    <label class="version-label" for="old-version">Select Version</label>
+                    <select class="version-select" id="old-version">
+                        <option value="">Choose a version…</option>
+                        <option value="v1">Version 1.0 — 2022 (Initial Release)</option>
+                        <option value="v2">Version 2.0 — 2023 (Annual Update)</option>
+                        <option value="v3">Version 3.0 — 2024 (Major Revision)</option>
+                    </select>
+                    <div class="version-meta" id="old-meta"></div>
+                </div>
+
+                <!-- Arrow -->
+                <div class="version-arrow">
+                    <div class="arrow-icon">⇒</div>
+                    <div style="font-size:0.75rem;color:var(--text-dim);margin-top:6px">Compare</div>
+                </div>
+
+                <!-- New Version -->
+                <div class="version-card version-card--new">
+                    <div class="version-card-header">
+                        <div class="version-card-icon">📋</div>
+                        <div>
+                            <div class="version-card-label">Updated Version</div>
+                            <div class="version-card-name">New Policy</div>
+                        </div>
+                    </div>
+                    <label class="version-label" for="new-version">Select Version</label>
+                    <select class="version-select" id="new-version">
+                        <option value="">Choose a version…</option>
+                        <option value="v2">Version 2.0 — 2023 (Annual Update)</option>
+                        <option value="v3">Version 3.0 — 2024 (Major Revision)</option>
+                        <option value="v4">Version 4.0 — 2025 (Latest)</option>
+                    </select>
+                    <div class="version-meta" id="new-meta"></div>
+                </div>
+            </div>
+
+            <div style="text-align:center;margin-top:28px">
+                <button class="btn btn-primary" id="compare-versions-btn" style="padding:14px 40px;font-size:1rem">
+                    🔍 Compare Policies
+                </button>
+            </div>
+        </div>
+
+        <!-- RESULTS (hidden initially) -->
+        <div id="tracker-results" style="display:none">
+
+            <!-- ANALYTICS SUMMARY -->
+            <div class="tracker-section reveal" style="margin-top:48px">
+                <div class="tracker-section-label">Summary</div>
+                <h2 class="tracker-section-title">Change Analytics Overview</h2>
+                <div class="analytics-grid">
+                    <div class="analytics-card analytics-card--total">
+                        <div class="analytics-icon">📊</div>
+                        <div class="analytics-num" id="stat-total">0</div>
+                        <div class="analytics-label">Total Changes</div>
+                    </div>
+                    <div class="analytics-card analytics-card--added">
+                        <div class="analytics-icon">✅</div>
+                        <div class="analytics-num" id="stat-added">0</div>
+                        <div class="analytics-label">Added Clauses</div>
+                    </div>
+                    <div class="analytics-card analytics-card--removed">
+                        <div class="analytics-icon">🗑️</div>
+                        <div class="analytics-num" id="stat-removed">0</div>
+                        <div class="analytics-label">Removed Clauses</div>
+                    </div>
+                    <div class="analytics-card analytics-card--modified">
+                        <div class="analytics-icon">✏️</div>
+                        <div class="analytics-num" id="stat-modified">0</div>
+                        <div class="analytics-label">Modified Clauses</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CHANGE RESULTS -->
+            <div class="tracker-section reveal" style="margin-top:48px">
+                <div class="tracker-section-label">Step 2</div>
+                <h2 class="tracker-section-title">Detected Clause Changes</h2>
+
+                <!-- Added Clauses -->
+                <div class="change-category" id="added-section">
+                    <div class="change-category-header change-category-header--added">
+                        <span class="change-category-icon">✅</span>
+                        <h3>Added Clauses</h3>
+                        <span class="change-badge badge-added" id="badge-added">0</span>
+                    </div>
+                    <div class="change-list" id="added-list"></div>
+                </div>
+
+                <!-- Removed Clauses -->
+                <div class="change-category" style="margin-top:20px" id="removed-section">
+                    <div class="change-category-header change-category-header--removed">
+                        <span class="change-category-icon">🗑️</span>
+                        <h3>Removed Clauses</h3>
+                        <span class="change-badge badge-removed" id="badge-removed">0</span>
+                    </div>
+                    <div class="change-list" id="removed-list"></div>
+                </div>
+
+                <!-- Modified Clauses -->
+                <div class="change-category" style="margin-top:20px" id="modified-section">
+                    <div class="change-category-header change-category-header--modified">
+                        <span class="change-category-icon">✏️</span>
+                        <h3>Modified Clauses</h3>
+                        <span class="change-badge badge-modified" id="badge-modified">0</span>
+                    </div>
+                    <div class="change-list" id="modified-list"></div>
+                </div>
+            </div>
+
+            <!-- DIFF VIEW -->
+            <div class="tracker-section reveal" style="margin-top:48px">
+                <div class="tracker-section-label">Step 3</div>
+                <h2 class="tracker-section-title">Visual Diff View — Side-by-Side</h2>
+                <p class="tracker-section-sub">Each modified clause is shown with the exact text changes highlighted.
+                </p>
+                <div id="diff-view-container"></div>
+            </div>
+
+        </div><!-- end tracker-results -->
+
+        <!-- EMPTY STATE (shown before compare) -->
+        <div id="tracker-empty" class="tracker-empty reveal">
+            <div class="tracker-empty-icon">📋</div>
+            <h3>Select Two Policy Versions Above</h3>
+            <p>Choose an old version and a new version, then click "Compare Policies" to see all clause changes
+                instantly.</p>
+            <div class="tracker-empty-chips">
+                <span>✓ Added Clauses Highlighted Green</span>
+                <span>✓ Removed Clauses Highlighted Red</span>
+                <span>✓ Modified Clauses with Diff View</span>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="nav-logo" style="position:static">
+                    <div class="logo-icon">🛡️</div>
+                    <span style="color:#fff;font-size:1.05rem;font-weight:700">RAG<span
+                            style="color:var(--primary-light)">Insurance</span></span>
+                </div>
+                <p>AI-powered insurance policy assistant using Retrieval-Augmented Generation for explainable, grounded
+                    responses.</p>
+            </div>
+            <div class="footer-col">
+                <h5>Navigation</h5>
+                <a href="index.html">Home</a>
+                <a href="features.html">Features</a>
+                <a href="policy-tracker.html">Policy Tracker</a>
+                <a href="admin.html">Admin Dashboard</a>
+            </div>
+            <div class="footer-col">
+                <h5>Tools</h5>
+                <a href="features.html#clause">Clause Citation</a>
+                <a href="features.html#comparison">Policy Comparison</a>
+                <a href="features.html#chatbot">AI Chatbot</a>
+                <a href="policy-tracker.html">Version Tracker</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <!--
+    🔧 API CONFIG
+    Local dev:   http://localhost:5000
+    Production:  https://your-app-name.onrender.com
+  -->
+    <script>
+        window.ENV_API_URL = "https://rag-insurance-assistant.onrender.com";
+    </script>
+</body>
+
+</html>
